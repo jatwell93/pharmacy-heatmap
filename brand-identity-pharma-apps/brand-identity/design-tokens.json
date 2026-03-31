@@ -1,0 +1,285 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "brand": "PharmIQ",
+    "version": "1.0.0",
+    "description": "PharmIQ design tokens — single source of truth for all product surfaces"
+  },
+  "color": {
+    "brand": {
+      "teal": {
+        "$value": "#0F766E",
+        "$type": "color",
+        "$description": "Primary brand teal — CTAs, active states, primary UI chrome"
+      },
+      "teal-light": {
+        "$value": "#14B8A6",
+        "$type": "color",
+        "$description": "Hover state, illustrated highlights"
+      },
+      "teal-dark": {
+        "$value": "#0D5D5A",
+        "$type": "color",
+        "$description": "Pressed/active state, deep emphasis"
+      },
+      "teal-50": {
+        "$value": "#F0FDFA",
+        "$type": "color",
+        "$description": "Row hover, subtle teal backgrounds"
+      },
+      "teal-100": {
+        "$value": "#CCFBF1",
+        "$type": "color",
+        "$description": "Selected row backgrounds, teal fills"
+      },
+      "amber": {
+        "$value": "#D97706",
+        "$type": "color",
+        "$description": "Alert accent — expiry warnings, dead-stock flags, Australian identity colour"
+      },
+      "amber-light": {
+        "$value": "#FDE68A",
+        "$type": "color",
+        "$description": "Warning card backgrounds"
+      },
+      "amber-50": {
+        "$value": "#FFFBEB",
+        "$type": "color",
+        "$description": "Warning surface backgrounds"
+      },
+      "amber-dark": {
+        "$value": "#92400E",
+        "$type": "color",
+        "$description": "Alert text on light backgrounds (meets AA contrast)"
+      },
+      "navy": {
+        "$value": "#0F172A",
+        "$type": "color",
+        "$description": "Primary text, navigation backgrounds, headings"
+      },
+      "navy-mid": {
+        "$value": "#1E3A5F",
+        "$type": "color",
+        "$description": "Card headers, sidebar secondary bg"
+      },
+      "sky": {
+        "$value": "#0EA5E9",
+        "$type": "color",
+        "$description": "Secondary tech accent, chart series 2"
+      }
+    },
+    "semantic": {
+      "success": {
+        "$value": "#10B981",
+        "$type": "color",
+        "$description": "Positive trends, in-stock, completions"
+      },
+      "success-bg": {
+        "$value": "#ECFDF5",
+        "$type": "color",
+        "$description": "Success badge and card backgrounds"
+      },
+      "warning": {
+        "$value": "#D97706",
+        "$type": "color",
+        "$description": "Expiry <30d, low-stock alerts (uses brand amber)"
+      },
+      "warning-bg": {
+        "$value": "#FFFBEB",
+        "$type": "color",
+        "$description": "Warning card and badge backgrounds"
+      },
+      "critical": {
+        "$value": "#EF4444",
+        "$type": "color",
+        "$description": "Expired items, critical errors, stock-outs"
+      },
+      "critical-bg": {
+        "$value": "#FEF2F2",
+        "$type": "color",
+        "$description": "Critical alert backgrounds"
+      },
+      "info": {
+        "$value": "#0EA5E9",
+        "$type": "color",
+        "$description": "System notifications, informational states (uses brand sky)"
+      },
+      "info-bg": {
+        "$value": "#F0F9FF",
+        "$type": "color",
+        "$description": "Info card backgrounds"
+      },
+      "dead-stock": {
+        "$value": "#8B5CF6",
+        "$type": "color",
+        "$description": "Dead-stock specific indicator — distinct from warnings"
+      },
+      "dead-stock-bg": {
+        "$value": "#F5F3FF",
+        "$type": "color",
+        "$description": "Dead-stock badge backgrounds"
+      },
+      "listed": {
+        "$value": "#0EA5E9",
+        "$type": "color",
+        "$description": "Listed on dead-stock marketplace"
+      }
+    },
+    "neutral": {
+      "white": {
+        "$value": "#FFFFFF",
+        "$type": "color",
+        "$description": "Page backgrounds, card surfaces"
+      },
+      "surface": {
+        "$value": "#F8FAFC",
+        "$type": "color",
+        "$description": "Secondary surfaces, sidebar backgrounds"
+      },
+      "border-light": {
+        "$value": "#E2E8F0",
+        "$type": "color",
+        "$description": "Dividers, card borders, table separators"
+      },
+      "border-mid": {
+        "$value": "#CBD5E1",
+        "$type": "color",
+        "$description": "Input borders, strong dividers"
+      },
+      "text-primary": {
+        "$value": "#0F172A",
+        "$type": "color",
+        "$description": "Headings, primary content (uses brand navy)"
+      },
+      "text-secondary": {
+        "$value": "#475569",
+        "$type": "color",
+        "$description": "Body copy, descriptions — 5.9:1 contrast on white (AA)"
+      },
+      "text-muted": {
+        "$value": "#94A3B8",
+        "$type": "color",
+        "$description": "Captions, placeholders — DECORATIVE ONLY. Never body text."
+      }
+    },
+    "chart": {
+      "series-1": { "$value": "#0F766E", "$type": "color", "$description": "Primary metric — Teal" },
+      "series-2": { "$value": "#0EA5E9", "$type": "color", "$description": "Secondary metric — Sky" },
+      "series-3": { "$value": "#D97706", "$type": "color", "$description": "Alert metric — Amber" },
+      "series-4": { "$value": "#8B5CF6", "$type": "color", "$description": "Comparison — Violet" },
+      "series-5": { "$value": "#10B981", "$type": "color", "$description": "Growth — Green" },
+      "series-6": { "$value": "#F43F5E", "$type": "color", "$description": "Negative/loss — Rose" },
+      "grid-line": { "$value": "#E2E8F0", "$type": "color", "$description": "Chart grid lines (subtle)" },
+      "axis-label": { "$value": "#94A3B8", "$type": "color", "$description": "Axis tick labels" },
+      "heatmap-0": { "$value": "#F8FAFC", "$type": "color", "$description": "Heat map: no data" },
+      "heatmap-1": { "$value": "#CCFBF1", "$type": "color", "$description": "Heat map: low" },
+      "heatmap-2": { "$value": "#5EEAD4", "$type": "color", "$description": "Heat map: below average" },
+      "heatmap-3": { "$value": "#0F766E", "$type": "color", "$description": "Heat map: average" },
+      "heatmap-4": { "$value": "#D97706", "$type": "color", "$description": "Heat map: above average / hot" },
+      "heatmap-5": { "$value": "#92400E", "$type": "color", "$description": "Heat map: top performer" }
+    }
+  },
+  "typography": {
+    "font-family": {
+      "heading": {
+        "$value": "'Space Grotesk', 'Sora', system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Space Grotesk — distinct from all AU pharmacy competitors; geometric with personality"
+      },
+      "body": {
+        "$value": "'Inter', system-ui, -apple-system, sans-serif",
+        "$type": "fontFamily"
+      },
+      "mono": {
+        "$value": "'JetBrains Mono', 'Fira Code', monospace",
+        "$type": "fontFamily"
+      }
+    },
+    "font-size": {
+      "display": { "$value": "56px", "$type": "dimension", "$description": "Hero / display headings (desktop)" },
+      "display-mobile": { "$value": "36px", "$type": "dimension" },
+      "h1": { "$value": "40px", "$type": "dimension" },
+      "h1-mobile": { "$value": "32px", "$type": "dimension" },
+      "h2": { "$value": "32px", "$type": "dimension" },
+      "h2-mobile": { "$value": "26px", "$type": "dimension" },
+      "h3": { "$value": "24px", "$type": "dimension" },
+      "h3-mobile": { "$value": "20px", "$type": "dimension" },
+      "h4": { "$value": "20px", "$type": "dimension" },
+      "body-lg": { "$value": "18px", "$type": "dimension" },
+      "body": { "$value": "16px", "$type": "dimension" },
+      "body-sm": { "$value": "14px", "$type": "dimension" },
+      "label": { "$value": "13px", "$type": "dimension" },
+      "caption": { "$value": "12px", "$type": "dimension" },
+      "data-lg": { "$value": "32px", "$type": "dimension", "$description": "Dashboard KPIs" },
+      "data": { "$value": "15px", "$type": "dimension", "$description": "Table cells, inline metrics" }
+    },
+    "font-weight": {
+      "regular": { "$value": "400", "$type": "fontWeight" },
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "semibold": { "$value": "600", "$type": "fontWeight" },
+      "bold": { "$value": "700", "$type": "fontWeight" },
+      "extrabold": { "$value": "800", "$type": "fontWeight" }
+    },
+    "line-height": {
+      "display": { "$value": "1.1", "$type": "number" },
+      "heading": { "$value": "1.25", "$type": "number" },
+      "body": { "$value": "1.6", "$type": "number" },
+      "label": { "$value": "1.4", "$type": "number" },
+      "data": { "$value": "1.45", "$type": "number" }
+    }
+  },
+  "spacing": {
+    "1": { "$value": "4px", "$type": "dimension", "$description": "Tight — icon-to-label" },
+    "2": { "$value": "8px", "$type": "dimension", "$description": "Compact — within components" },
+    "3": { "$value": "12px", "$type": "dimension", "$description": "Small — related elements" },
+    "4": { "$value": "16px", "$type": "dimension", "$description": "Base — standard padding" },
+    "5": { "$value": "20px", "$type": "dimension", "$description": "Medium — card padding" },
+    "6": { "$value": "24px", "$type": "dimension", "$description": "Large — section spacing" },
+    "8": { "$value": "32px", "$type": "dimension", "$description": "XL — between sections" },
+    "10": { "$value": "40px", "$type": "dimension", "$description": "2XL — major section gaps" },
+    "12": { "$value": "48px", "$type": "dimension", "$description": "3XL — page-level breathing" },
+    "16": { "$value": "64px", "$type": "dimension", "$description": "Hero — display spacing" }
+  },
+  "border-radius": {
+    "sm": { "$value": "4px", "$type": "dimension", "$description": "Badges, tags, chips" },
+    "md": { "$value": "8px", "$type": "dimension", "$description": "Buttons, inputs, small cards" },
+    "lg": { "$value": "12px", "$type": "dimension", "$description": "Cards, panels, modals" },
+    "xl": { "$value": "16px", "$type": "dimension", "$description": "Large modals, bottom sheets" },
+    "full": { "$value": "9999px", "$type": "dimension", "$description": "Pills, avatar rings, progress bars" }
+  },
+  "shadow": {
+    "none": { "$value": "none", "$type": "shadow" },
+    "xs": { "$value": "0 1px 2px rgba(15,23,42,0.06)", "$type": "shadow", "$description": "Subtle lift" },
+    "sm": { "$value": "0 1px 3px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.06)", "$type": "shadow", "$description": "Cards" },
+    "md": { "$value": "0 4px 6px rgba(15,23,42,0.07), 0 2px 4px rgba(15,23,42,0.06)", "$type": "shadow", "$description": "Dropdowns" },
+    "lg": { "$value": "0 10px 15px rgba(15,23,42,0.10), 0 4px 6px rgba(15,23,42,0.05)", "$type": "shadow", "$description": "Modals" },
+    "xl": { "$value": "0 20px 25px rgba(15,23,42,0.10), 0 8px 10px rgba(15,23,42,0.04)", "$type": "shadow", "$description": "Overlays" },
+    "glass-inner": { "$value": "inset 0 1px 0 rgba(255,255,255,0.4)", "$type": "shadow", "$description": "Inner highlights for glass surfaces" }
+  },
+  "glass": {
+    "opacity": {
+      "surface": { "$value": "0.8", "$type": "number" },
+      "border": { "$value": "0.5", "$type": "number" },
+      "input": { "$value": "0.9", "$type": "number" }
+    },
+    "blur": {
+      "sm": { "$value": "8px", "$type": "dimension" },
+      "md": { "$value": "12px", "$type": "dimension" },
+      "lg": { "$value": "20px", "$type": "dimension" }
+    }
+  },
+  "animation": {
+    "duration": {
+      "instant": { "$value": "0ms", "$type": "duration" },
+      "fast": { "$value": "150ms", "$type": "duration", "$description": "Micro-interactions, hover states" },
+      "normal": { "$value": "250ms", "$type": "duration", "$description": "Standard transitions" },
+      "slow": { "$value": "350ms", "$type": "duration", "$description": "Complex state changes" },
+      "chart": { "$value": "300ms", "$type": "duration", "$description": "Chart data updates" }
+    },
+    "easing": {
+      "enter": { "$value": "cubic-bezier(0.0, 0.0, 0.2, 1)", "$type": "cubicBezier", "$description": "ease-out — elements entering" },
+      "exit": { "$value": "cubic-bezier(0.4, 0.0, 1, 1)", "$type": "cubicBezier", "$description": "ease-in — elements exiting" },
+      "standard": { "$value": "cubic-bezier(0.4, 0.0, 0.2, 1)", "$type": "cubicBezier", "$description": "Material standard" }
+    }
+  }
+}

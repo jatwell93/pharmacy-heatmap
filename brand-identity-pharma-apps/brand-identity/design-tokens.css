@@ -1,0 +1,262 @@
+/**
+ * PharmIQ Design Tokens — CSS Custom Properties
+ * Generated from design-tokens.json v1.0.0
+ *
+ * Usage: import this file before all component stylesheets.
+ * Use semantic tokens in components (never raw hex values).
+ *
+ * Example: color: var(--color-text-primary);
+ *          background: var(--color-brand-teal);
+ */
+
+:root {
+  /* ─────────────────────────────────────────
+     BRAND COLORS
+  ───────────────────────────────────────── */
+  --color-brand-teal:         #0F766E;
+  --color-brand-teal-light:   #14B8A6;
+  --color-brand-teal-dark:    #0D5D5A;
+  --color-brand-teal-50:      #F0FDFA;
+  --color-brand-teal-100:     #CCFBF1;
+
+  --color-brand-amber:        #D97706;
+  --color-brand-amber-light:  #FDE68A;
+  --color-brand-amber-50:     #FFFBEB;
+  --color-brand-amber-dark:   #92400E;
+
+  --color-brand-navy:         #0F172A;
+  --color-brand-navy-mid:     #1E3A5F;
+  --color-brand-sky:          #0EA5E9;
+
+  /* ─────────────────────────────────────────
+     SEMANTIC COLORS
+  ───────────────────────────────────────── */
+  --color-success:            #10B981;
+  --color-success-bg:         #ECFDF5;
+
+  --color-warning:            #D97706; /* same as brand-amber */
+  --color-warning-bg:         #FFFBEB;
+
+  --color-critical:           #EF4444;
+  --color-critical-bg:        #FEF2F2;
+
+  --color-info:               #0EA5E9; /* same as brand-sky */
+  --color-info-bg:            #F0F9FF;
+
+  --color-dead-stock:         #8B5CF6;
+  --color-dead-stock-bg:      #F5F3FF;
+
+  /* ─────────────────────────────────────────
+     NEUTRAL PALETTE
+  ───────────────────────────────────────── */
+  --color-white:              #FFFFFF;
+  --color-surface:            #F8FAFC;
+  --color-border-light:       #E2E8F0;
+  --color-border-mid:         #CBD5E1;
+  --color-text-primary:       #0F172A;
+  --color-text-secondary:     #475569;
+  --color-text-muted:         #94A3B8; /* DECORATIVE/captions only */
+
+  /* ─────────────────────────────────────────
+     CHART / DATA VIZ PALETTE
+  ───────────────────────────────────────── */
+  --color-chart-1:            #0F766E;
+  --color-chart-2:            #0EA5E9;
+  --color-chart-3:            #D97706;
+  --color-chart-4:            #8B5CF6;
+  --color-chart-5:            #10B981;
+  --color-chart-6:            #F43F5E;
+  --color-chart-grid:         #E2E8F0;
+  --color-chart-axis:         #94A3B8;
+
+  /* Heat map scale */
+  --color-heatmap-0:          #F8FAFC;
+  --color-heatmap-1:          #CCFBF1;
+  --color-heatmap-2:          #5EEAD4;
+  --color-heatmap-3:          #0F766E;
+  --color-heatmap-4:          #D97706;
+  --color-heatmap-5:          #92400E;
+
+  /* ─────────────────────────────────────────
+     TYPOGRAPHY
+  ───────────────────────────────────────── */
+  --font-heading:   'Space Grotesk', 'Sora', system-ui, sans-serif;
+  --font-body:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-display:   56px;
+  --text-h1:        40px;
+  --text-h2:        32px;
+  --text-h3:        24px;
+  --text-h4:        20px;
+  --text-body-lg:   18px;
+  --text-body:      16px;
+  --text-body-sm:   14px;
+  --text-label:     13px;
+  --text-caption:   12px;
+  --text-data-lg:   32px;
+  --text-data:      15px;
+
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  --leading-display:  1.1;
+  --leading-heading:  1.25;
+  --leading-body:     1.6;
+  --leading-label:    1.4;
+  --leading-data:     1.45;
+
+  /* ─────────────────────────────────────────
+     SPACING (8dp base grid)
+  ───────────────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  /* ─────────────────────────────────────────
+     BORDER RADIUS
+  ───────────────────────────────────────── */
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-xl:    16px;
+  --radius-full:  9999px;
+
+  /* ─────────────────────────────────────────
+     ELEVATION / SHADOWS
+  ───────────────────────────────────────── */
+  --shadow-none:  none;
+  --shadow-xs:    0 1px 2px rgba(15,23,42,0.06);
+  --shadow-sm:    0 1px 3px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.06);
+  --shadow-md:    0 4px 6px rgba(15,23,42,0.07), 0 2px 4px rgba(15,23,42,0.06);
+  --shadow-lg:    0 10px 15px rgba(15,23,42,0.10), 0 4px 6px rgba(15,23,42,0.05);
+  --shadow-xl:    0 20px 25px rgba(15,23,42,0.10), 0 8px 10px rgba(15,23,42,0.04);
+  --shadow-glass-inner: inset 0 1px 0 rgba(255,255,255,0.4);
+
+  /* Glass tokens */
+  --glass-opacity-surface: 0.8;
+  --glass-opacity-border:  0.5;
+  --glass-opacity-input:   0.9;
+  --glass-blur-sm:         8px;
+  --glass-blur-md:         12px;
+  --glass-blur-lg:         20px;
+
+  /* Focus ring */
+  --focus-ring-teal:   0 0 0 3px rgba(15,118,110,0.15);
+  --focus-ring-amber:  0 0 0 3px rgba(217,119,6,0.20);
+  --focus-ring-error:  0 0 0 3px rgba(239,68,68,0.15);
+
+  /* ─────────────────────────────────────────
+     ANIMATION
+  ───────────────────────────────────────── */
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    350ms;
+  --duration-chart:   300ms;
+
+  --ease-enter:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-exit:     cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* ─────────────────────────────────────────
+     LAYOUT / BREAKPOINTS (as CSS vars)
+  ───────────────────────────────────────── */
+  --breakpoint-sm:   375px;
+  --breakpoint-md:   768px;
+  --breakpoint-lg:   1024px;
+  --breakpoint-xl:   1280px;
+  --breakpoint-2xl:  1440px;
+
+  --sidebar-width:        240px;
+  --sidebar-width-collapsed: 60px;
+  --topbar-height:        60px;
+  --content-max-width:    1280px;
+
+  /* ─────────────────────────────────────────
+     Z-INDEX SCALE
+  ───────────────────────────────────────── */
+  --z-base:       0;
+  --z-raised:     10;
+  --z-dropdown:   20;
+  --z-sticky:     40;
+  --z-overlay:    60;
+  --z-modal:      80;
+  --z-toast:      100;
+  --z-tooltip:    120;
+}
+
+/* ─────────────────────────────────────────
+   DARK MODE (dashboard/app use case)
+   Usage: add .dark class to <html> or <body>
+───────────────────────────────────────── */
+.dark {
+  --color-white:          #0F172A;
+  --color-surface:        #1E293B;
+  --color-border-light:   #334155;
+  --color-border-mid:     #475569;
+  --color-text-primary:   #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted:     #64748B;
+
+  --color-brand-teal:     #14B8A6;  /* Lighter teal for dark mode visibility */
+  --color-brand-teal-50:  rgba(20,184,166,0.10);
+  --color-brand-teal-100: rgba(20,184,166,0.20);
+
+  --color-success-bg:     rgba(16,185,129,0.12);
+  --color-warning-bg:     rgba(217,119,6,0.12);
+  --color-critical-bg:    rgba(239,68,68,0.12);
+  --color-info-bg:        rgba(14,165,233,0.12);
+  --color-dead-stock-bg:  rgba(139,92,246,0.12);
+
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.25);
+  --shadow-md:    0 4px 6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.20);
+  --shadow-lg:    0 10px 15px rgba(0,0,0,0.30), 0 4px 6px rgba(0,0,0,0.20);
+}
+
+/* ─────────────────────────────────────────
+   REDUCED MOTION
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:   0ms;
+    --duration-normal: 0ms;
+    --duration-slow:   0ms;
+    --duration-chart:  0ms;
+  }
+}
+
+/* ─────────────────────────────────────────
+   MOBILE SCALE OVERRIDES (≤768px)
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --text-display: 36px;
+    --text-h1:      32px;
+    --text-h2:      26px;
+    --text-h3:      20px;
+    --text-h4:      18px;
+    --text-data-lg: 28px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   TABULAR NUMBERS (always on for data)
+───────────────────────────────────────── */
+.tabular-nums,
+[data-value],
+.metric,
+.table-cell--numeric,
+td.numeric,
+.badge-count {
+  font-variant-numeric: tabular-nums;
+}

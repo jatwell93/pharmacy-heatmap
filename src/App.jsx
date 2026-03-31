@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import * as XLSX from "xlsx";
 import * as d3 from "d3";
 
-const StoreHeatmap = () => {
+const PharmIQHeatMap = () => {
   // State for image and data
   const [floorPlanImage, setFloorPlanImage] = useState(null); // { src, width, height }
   const [salesData, setSalesData] = useState(null); // { deptName: salesValue, ... }
@@ -22,7 +22,9 @@ const StoreHeatmap = () => {
   const [heatmapOpacity, setHeatmapOpacity] = useState(0.85); // Opacity for heatmap
 
   const [colorScale, setColorScale] = useState(() =>
-    d3.scaleSequential(d3.interpolateRdYlBu).domain([1, 0]),
+    d3.scaleLinear()
+      .domain([0, 0.5, 1])
+      .range(["#F8FAFC", "#0F766E", "#D97706"])
   );
 
   // State for canvas panning and zooming
@@ -123,7 +125,9 @@ const StoreHeatmap = () => {
           });
 
           setColorScale(() =>
-            d3.scaleSequential(d3.interpolateRdYlBu).domain([1, 0]),
+            d3.scaleLinear()
+              .domain([0, maxSalesValue / 2, maxSalesValue])
+              .range(["#F8FAFC", "#0F766E", "#D97706"])
           );
         } catch (error) {
           alert(
@@ -648,7 +652,7 @@ const StoreHeatmap = () => {
         if (dept.coords.length >= 3) {
           ctx.closePath();
         }
-        ctx.strokeStyle = "#ff0000";
+        ctx.strokeStyle = "#D97706"; // Brand Amber for mapping lines
         ctx.lineWidth = 2 / zoom;
         ctx.setLineDash([6 / zoom, 3 / zoom]);
         ctx.stroke();
@@ -660,7 +664,7 @@ const StoreHeatmap = () => {
         ctx.beginPath();
         const pointRadius = 4 / zoom;
         ctx.arc(point.x, point.y, pointRadius, 0, Math.PI * 2);
-        ctx.fillStyle = "#ff0000";
+        ctx.fillStyle = "#D97706"; // Brand Amber
         ctx.fill();
       });
     }
@@ -674,22 +678,22 @@ const StoreHeatmap = () => {
       selectedDepartment !== null &&
       departments[selectedDepartment]
     ) {
-      ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
-      ctx.font = "14px Arial";
+      ctx.fillStyle = "rgba(217, 119, 6, 0.9)"; // Brand Amber with high opacity
+      ctx.font = "bold 14px Inter, sans-serif";
       ctx.textAlign = "left";
       const drawingText =
-        "DRAWING: " +
+        "PROFIT CENTER MAPPING: " +
         departments[selectedDepartment].name +
-        ". Click to add points. (" +
+        ". CLICK TO ADD ARCHITECTURE. (" +
         departments[selectedDepartment].coords.length +
-        " points)";
+        " POINTS)";
       ctx.fillText(drawingText, 10, 25);
     }
     if (mode === "view" && !isDragging) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.font = "12px Arial";
+      ctx.fillStyle = "rgba(15, 23, 42, 0.7)"; // Brand Navy with opacity
+      ctx.font = "bold 12px Inter, sans-serif";
       ctx.textAlign = "left";
-      const viewText = "View Mode: Drag to Pan, Scroll to Zoom";
+      const viewText = "COMMAND MODE: DRAG TO PAN • SCROLL TO ZOOM";
       ctx.fillText(viewText, 10, 25);
     }
     // Cleanup function for the effect
@@ -713,187 +717,176 @@ const StoreHeatmap = () => {
   ]); // Dependencies for the drawing effect
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden font-body text-brand-navy">
       {/* Header */}
-      <header className="bg-gray-100 border-b">
-        <div className="mx-auto flex items-center gap-3 p-3">
-          <a href="/icons8-heat-map-bubbles-96.png" className="shrink-0">
+      <header className="bg-white border-b border-border-light shadow-sm">
+        <div className="mx-auto flex items-center justify-between p-4 px-6">
+          <div className="flex items-center gap-4">
             <img
-              src="/icons8-heat-map-bubbles-96.png"
-              alt="Heatmap logo"
-              className="h-8 w-8 md:h-10 md:w-10"
+              src="/pharmiq-logo-full.svg"
+              alt="PharmIQ Logo"
+              className="h-10 w-auto"
             />
-          </a>
-          <h1 className="text-xl md:text-3xl font-bold">
-            Store Floor Plan Sales Heatmap
-          </h1>
+            <div className="h-6 w-px bg-border-light hidden md:block"></div>
+            <h1 className="text-xl md:text-2xl font-heading font-bold text-brand-teal hidden md:block">
+              Heat-Map Dashboard
+            </h1>
+          </div>
+          <div className="flex items-center gap-4">
+             <span className="text-xs font-medium px-2 py-1 bg-brand-teal/10 text-brand-teal rounded-full uppercase tracking-wider">Infrastructure for Choice</span>
+          </div>
         </div>
       </header>
       <div className="flex flex-1 overflow-hidden">
         {" "}
         {/* Main content area */}
         {/* Control Panel (Left Sidebar) */}
-        <div className="w-full md:w-1/3 lg:w-1/4 p-4 border-r overflow-y-auto space-y-4 bg-gray-50">
-          <div className="mt-4 text-sm ">
-            <h2 className="text-lg font-semibold mb-3 border-b pb-2">
-              How to Use
+        <div className="w-full md:w-1/3 lg:w-1/4 p-6 border-r border-border-light overflow-y-auto space-y-6 bg-surface-gray">
+          <div className="p-4 bg-white/50 backdrop-blur-md rounded-xl border border-border-light shadow-sm">
+            <h2 className="text-sm font-heading font-bold uppercase tracking-wider text-brand-teal/80 mb-3 border-b border-border-light/50 pb-2">
+              Command Center Setup
             </h2>
-            <ol className="list-decimal pl-5">
-              <li>Upload your store floor plan image</li>
+            <ol className="list-decimal pl-4 space-y-2 text-sm text-gray-600">
+              <li>Upload your <strong>Store Floor Plan</strong></li>
               <li>
-                Upload your Excel file with sales data (Department names in
-                Column A, Sales* in Column B)
-                <br />{" "}
-                <i>
-                  *This could be profit $ or sales $ etc. but must be normalised
-                  by space. The easiest way to do this is to take the department
-                  sales and divide by bay count. EXAMPLE: Skincare $10,000 / 5
-                  bays = $2,000 per bay)
-                </i>
+                Upload your <strong>Sales Intelligence</strong> (Excel/XLSX)
+                <div className="mt-1 text-xs bg-brand-amber/5 text-brand-amber-dark p-2 rounded italic border-l-2 border-brand-amber">
+                  Column A: Department Name<br/>
+                  Column C: Normalized Performance Data ($)
+                </div>
               </li>
               <li>
-                Add departments by selecting a department and drawing its
-                boundaries on the floor plan.{" "}
-                <i>(Easiest way is to click the 4 corners of the section)</i>
-              </li>
-              <li>
-                The heatmap will automatically show which departments have the
-                highest sales
-              </li>
-              <li>
-                Use the mouse to pan (drag) and zoom (scroll wheel) around the
-                floor plan
-              </li>
-              <li>
-                Toggle the heatmap visualisation and adjust settings as needed
+                Define <strong>Profit Centers</strong> by mapping boundaries on the floor plan
               </li>
             </ol>
           </div>
-          <h2 className="text-lg font-semibold mb-3 border-b pb-2">Uploads</h2>
+          
+          <div className="flex items-center justify-between mb-1">
+            <h2 className="text-lg font-heading font-bold text-brand-navy">Operational Inputs</h2>
+            <div className="flex items-center gap-1.5 px-1.5 py-0.5 bg-gray-200 rounded text-[10px] font-bold text-gray-500">
+              <span className="opacity-50">⌘</span>K
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 mb-4">Connect your physical infrastructure to your performance data.</p>
 
           {/* Step 1: Upload Floor Plan */}
-          <div className="space-y-1">
-            <label className="block font-medium text-sm" htmlFor="imageUpload">
-              1. Upload Floor Plan (PNG/JPG)
+          <div className="space-y-1 p-3 bg-white rounded-lg border border-border-light">
+            <label className="block font-bold text-xs uppercase tracking-wide text-gray-600" htmlFor="imageUpload">
+              1. Floor Plan (PNG/JPG)
             </label>
             <input
               id="imageUpload"
               type="file"
               accept="image/png, image/jpeg"
               onChange={handleImageUpload}
-              className="w-full text-sm p-1 border rounded file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              className="w-full text-xs p-1 mt-2 file:mr-2 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-brand-teal/10 file:text-brand-teal hover:file:bg-brand-teal/20"
             />
             {floorPlanImage && (
-              <div className="text-xs text-green-600">✓ Floor plan loaded.</div>
+              <div className="text-xs text-brand-teal font-medium flex items-center gap-1 pt-1">
+                <span className="w-2 h-2 bg-brand-teal rounded-full animate-pulse"></span> Infrastructure Synced
+              </div>
             )}
           </div>
 
           {/* Step 2: Upload Sales Data */}
-          <div className="space-y-1">
-            <label className="block font-medium text-sm" htmlFor="excelUpload">
-              2. Upload Sales Data (XLSX)
+          <div className="space-y-1 p-3 bg-white rounded-lg border border-border-light">
+            <label className="block font-bold text-xs uppercase tracking-wide text-gray-600" htmlFor="excelUpload">
+              2. Sales Intelligence (XLSX)
             </label>
             <input
               id="excelUpload"
               type="file"
               accept=".xlsx,.xls"
               onChange={handleExcelUpload}
-              className="w-full text-sm p-1 border rounded file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
-              disabled={!floorPlanImage} // Disable until floor plan is loaded
+              className="w-full text-xs p-1 mt-2 file:mr-2 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-brand-teal/10 file:text-brand-teal hover:file:bg-brand-teal/20 disabled:opacity-50"
+              disabled={!floorPlanImage}
             />
             {!floorPlanImage && (
-              <div className="text-xs text-gray-500">
-                Upload floor plan first.
+              <div className="text-[10px] text-gray-400">
+                Awaiting floor plan synchronization...
               </div>
             )}
             {salesData && (
-              <div className="text-xs text-green-600">
-                ✓ Sales data loaded ({Object.keys(salesData).length}{" "}
-                departments).
-              </div>
-            )}
-            {salesData && !maxSales && (
-              <div className="text-xs text-orange-600">
-                Note: Max sales value is 0. Heatmap may not show variation.
+              <div className="text-xs text-brand-teal font-medium pt-1">
+                ✓ Data Source Connected ({Object.keys(salesData).length} centers)
               </div>
             )}
           </div>
 
           {/* Step 3: Define Department Areas */}
-          <div className="space-y-2 pt-3">
-            <h3 className="font-medium text-sm mb-1">
-              3. Define Department Areas
+          <div className="space-y-3 pt-2">
+            <h3 className="font-heading font-bold text-sm">
+              3. Map Profit Centers
             </h3>
             <button
               onClick={showDepartmentSelector}
-              //
-              className="w-full border border-gray-600 bg-blue-500 hover:bg-blue-600 text-gray-800 px-3 py-1.5 rounded text-sm font-semibold disabled:bg-gray-300"
-              disabled={!floorPlanImage || mode === "draw"} // Disable if no image or already drawing
+              className="w-full primary-btn text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={!floorPlanImage || mode === "draw"}
             >
               {mode === "draw"
-                ? "Finish Drawing First"
-                : "Add/Select Department"}
+                ? "Active Mapping Session..."
+                : "Initialize Center Mapping"}
             </button>
             {!floorPlanImage && (
-              <div className="text-xs text-red-500">
-                Upload floor plan to enable.
+              <div className="text-[10px] text-brand-amber font-medium">
+                Infrastructure sync required for mapping.
               </div>
             )}
 
             {/* Department Selector Popup/Inline */}
             {showDeptSelector && (
-              <div className="mt-2 p-3 border-2 border-blue-400 bg-blue-50 rounded shadow-md space-y-3">
-                <h4 className="font-semibold text-sm text-blue-800">
-                  Select Department to Draw
+              <div className="mt-2 p-4 bg-white rounded-xl border-2 border-brand-teal shadow-lg space-y-3">
+                <h4 className="font-heading font-bold text-sm text-brand-teal">
+                  Select Profit Center
                 </h4>
                 {availableDepts.length > 0 ? (
-                  <div className="space-y-1 max-h-40 overflow-y-auto border rounded p-1 bg-white">
-                    <p className="text-xs text-gray-600 px-1 pb-1">
-                      From Excel (not yet drawn):
+                  <div className="space-y-1 max-h-48 overflow-y-auto border border-border-light rounded-lg p-2 bg-surface-gray">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 pb-2 tracking-widest">
+                      Unmapped Intelligence:
                     </p>
                     {availableDepts.map((deptName, idx) => (
                       <button
                         key={idx}
-                        className="block w-full text-left px-2 py-1 text-sm hover:bg-blue-100 rounded"
+                        className="block w-full text-left px-3 py-2 text-sm hover:bg-white hover:shadow-sm rounded transition-all tabular-nums"
                         onClick={() => createDepartment(deptName)}
-                        title={`Sales: $${((salesData && salesData[deptName]) || 0).toLocaleString()}`}
                       >
-                        {deptName}{" "}
-                        <span className="text-xs text-gray-500">
-                          ($
-                          {(
-                            (salesData && salesData[deptName]) ||
-                            0
-                          ).toLocaleString()}
-                          )
-                        </span>
+                        <div className="font-medium text-brand-navy">{deptName}</div>
+                        <div className="text-xs text-gray-500">
+                          ${((salesData && salesData[deptName]) || 0).toLocaleString()} Value
+                        </div>
                       </button>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-sm italic text-gray-500">
+                  <p className="text-xs italic text-gray-500 p-2">
                     {salesData
-                      ? "All departments from Excel are already added or no data loaded."
-                      : "Upload sales data to see available departments."}
+                      ? "All intelligence sources mapped."
+                      : "Awaiting sales data upload."}
                   </p>
                 )}
                 {/* Manual Entry */}
-                <div className="flex items-center space-x-2 pt-2 border-t">
+                <div className="flex items-center space-x-2 pt-3 border-t border-border-light">
                   <input
                     type="text"
                     value={newDeptName}
                     onChange={(e) => setNewDeptName(e.target.value)}
-                    placeholder="Or type new name"
-                    className="flex-1 p-1.5 border rounded text-sm"
+                    placeholder="New center name"
+                    className="flex-1 p-2 border border-border-light rounded-md text-sm focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal outline-none transition-all"
                   />
                   <button
-                    onClick={() => createDepartment(newDeptName.trim())} // Trim whitespace
+                    onClick={() => createDepartment(newDeptName.trim())}
                     disabled={
                       !newDeptName.trim() ||
                       departments.some((d) => d.name === newDeptName.trim())
-                    } // Disable if empty or duplicate name
-                    className="border border-gray-600 bg-green-500 text-gray-800 px-3 py-1.5 rounded text-sm disabled:bg-gray-300"
-                    title={
+                    }
+                    className="p-2 bg-brand-teal text-white rounded-md hover:bg-brand-teal-dark disabled:opacity-50"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
                       departments.some((d) => d.name === newDeptName.trim())
                         ? "Department name already exists"
                         : ""
@@ -952,46 +945,45 @@ const StoreHeatmap = () => {
           </div>
 
           {/* View Options */}
-          <div className="space-y-2 border-t pt-3">
-            <h3 className="font-medium text-sm mb-1">View Options</h3>
-            <label className="flex items-center cursor-pointer">
+          <div className="space-y-4 pt-4 border-t border-border-light">
+            <label className="flex items-center cursor-pointer group">
               <input
                 type="checkbox"
                 checked={heatmapVisible}
                 onChange={() => setHeatmapVisible(!heatmapVisible)}
-                className="mr-2 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                className="mr-3 h-5 w-5 rounded border-border-light text-brand-teal focus:ring-brand-teal/30"
                 disabled={!salesData || maxSales <= 0}
               />
-              <span className="text-sm">Show Sales Heatmap</span>
+              <span className="text-sm font-heading font-bold text-brand-navy group-hover:text-brand-teal transition-colors">
+                Performance Visualization
+              </span>
             </label>
             {(!salesData || maxSales <= 0) && (
-              <div className="text-xs text-gray-500 pl-6">
-                Load sales data with values &gt; 0 to enable.
+              <div className="text-[10px] text-gray-400 pl-8">
+                Connect data source to enable visualization.
               </div>
             )}
 
             {/* Heatmap Advanced Options */}
             {heatmapVisible && salesData && maxSales > 0 && (
-              <div className="space-y-3 mt-2 p-2 bg-gray-100 rounded">
-                {/* Blur Radius Control */}
+              <div className="space-y-4 mt-2 p-4 bg-white rounded-xl border border-border-light shadow-sm">
                 <div>
-                  <label className="text-xs font-medium block mb-1">
-                    Blur Radius: {blurRadius}px
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mb-2">
+                    Diffusion Radius: {blurRadius}px
                   </label>
                   <input
                     type="range"
                     min="5"
-                    max="50"
+                    max="100"
                     value={blurRadius}
                     onChange={(e) => setBlurRadius(parseInt(e.target.value))}
-                    className="w-full"
+                    className="w-full accent-brand-teal"
                   />
                 </div>
 
-                {/* Opacity Control */}
                 <div>
-                  <label className="text-xs font-medium block mb-1">
-                    Opacity: {Math.round(heatmapOpacity * 100)}%
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-gray-500 block mb-2">
+                    Data Intensity: {Math.round(heatmapOpacity * 100)}%
                   </label>
                   <input
                     type="range"
@@ -1001,7 +993,7 @@ const StoreHeatmap = () => {
                     onChange={(e) =>
                       setHeatmapOpacity(parseInt(e.target.value) / 100)
                     }
-                    className="w-full"
+                    className="w-full accent-brand-teal"
                   />
                 </div>
               </div>
@@ -1009,106 +1001,103 @@ const StoreHeatmap = () => {
 
             {/* Color Legend */}
             {salesData && maxSales > 0 && heatmapVisible && (
-              <div className="pt-3 pb-1">
-                <h4 className="font-medium text-sm mb-2">Sales Legend</h4>
+              <div className="pt-2">
+                <h4 className="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-3">Performance Legend</h4>
                 <div
-                  className="h-6 w-full rounded-md border border-gray-300 shadow-inner"
+                  className="h-3 w-full rounded-full border border-border-light shadow-inner"
                   style={{
                     background:
-                      "linear-gradient(to right, #d73027, #fc8d59, #fee090, #ffffbf, #e0f3f8, #91bfdb, #4575b4)",
+                      "linear-gradient(to right, #F8FAFC, #0F766E, #D97706)",
                   }}
                 ></div>
-                <div className="flex justify-between text-xs mt-1.5 text-gray-700 px-1 font-medium">
-                  <span>${maxSales.toLocaleString()}</span>
-                  <span>${Math.round(maxSales / 2).toLocaleString()}</span>
+                <div className="flex justify-between text-[10px] mt-2 text-brand-navy font-bold tabular-nums px-0.5">
+                  <span className="text-gray-400">Baseline</span>
+                  <span className="text-brand-teal">Target</span>
+                  <span className="text-brand-amber">Top Tier</span>
+                </div>
+                <div className="flex justify-between text-[11px] mt-1 text-gray-500 tabular-nums px-0.5">
                   <span>$0</span>
+                  <span>${Math.round(maxSales / 2).toLocaleString()}</span>
+                  <span>${maxSales.toLocaleString()}</span>
                 </div>
               </div>
             )}
           </div>
 
           {/* Defined Departments List */}
-          <div className="space-y-2 border-t pt-3">
-            <h3 className="font-medium text-sm mb-1">
-              Defined Departments ({departments.length})
+          <div className="space-y-3 border-t border-border-light pt-6">
+            <h3 className="font-heading font-bold text-sm text-brand-navy flex items-center justify-between">
+              <span>Departmental Profit Centers</span>
+              <span className="text-xs px-2 py-0.5 bg-gray-200 rounded-full font-mono">{departments.length}</span>
             </h3>
-            <div className="max-h-60 overflow-y-auto space-y-1.5 pr-1">
+            <div className="max-h-72 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
               {departments.length === 0 ? (
-                <p className="text-sm italic text-gray-500">
-                  No departments defined yet.
-                </p>
+                <div className="p-8 text-center bg-white/30 rounded-xl border border-dashed border-border-light">
+                  <p className="text-xs italic text-gray-400">
+                    No profit centers mapped to infrastructure.
+                  </p>
+                </div>
               ) : (
                 departments.map((dept, index) => (
                   <div
                     key={dept.id}
                     className={
-                      "flex items-center justify-between p-1.5 rounded border " +
+                      "group flex items-center justify-between p-3 rounded-xl border transition-all " +
                       (selectedDepartment === index && mode === "draw"
-                        ? "bg-red-100 border-red-300"
-                        : "bg-white border-gray-200 hover:bg-gray-100")
+                        ? "bg-brand-amber/10 border-brand-amber shadow-sm"
+                        : "bg-white border-border-light hover:border-brand-teal/50 hover:shadow-md")
                     }
                   >
-                    <div className="flex-1 mr-2">
-                      <span className="font-medium text-sm">{dept.name}</span>
-                      {salesData && dept.sales !== undefined && (
-                        <span className="ml-1 text-xs text-gray-600">
-                          (${dept.sales.toLocaleString()})
-                        </span>
-                      )}
-                      <div className="text-xs text-gray-500">
-                        {dept.coords.length} pt
-                        {dept.coords.length !== 1 ? "s" : ""}
+                    <div className="flex-1 mr-3 min-w-0">
+                      <div className="flex items-center gap-2">
+                         <span className="font-bold text-sm text-brand-navy truncate">{dept.name}</span>
+                         {salesData && dept.sales !== undefined && (
+                           <span className="text-[10px] font-bold text-brand-teal tabular-nums px-1.5 py-0.5 bg-brand-teal/5 rounded">
+                             ${dept.sales.toLocaleString()}
+                           </span>
+                         )}
+                      </div>
+                      <div className="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-medium">
+                        {dept.coords.length} Data Points
                         {dept.coords.length >= 3
                           ? ""
                           : dept.coords.length > 0
-                            ? " (incomplete)"
-                            : " (no area drawn)"}
+                            ? " • Incomplete Mapping"
+                            : " • Awaiting Geometry"}
                       </div>
                     </div>
-                    <div className="flex space-x-1">
+                    <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button
                         onClick={() => {
                           setSelectedDepartment(index);
-                          setMode("draw"); // Enter drawing mode for this department
-                          setShowDeptSelector(false); // Close selector if open
+                          setMode("draw");
+                          setShowDeptSelector(false);
                         }}
                         className={
-                          "px-2 py-0.5 border border-gray-600 rounded text-xs font-medium " +
+                          "p-2 rounded-lg transition-colors " +
                           (selectedDepartment === index && mode === "draw"
-                            ? "bg-red-500 text-gray-800"
-                            : "bg-blue-500 text-gray-800 hover:bg-blue-600")
+                            ? "bg-brand-amber text-white"
+                            : "bg-brand-teal/10 text-brand-teal hover:bg-brand-teal hover:text-white")
                         }
-                        disabled={mode === "draw"} // Disable if already drawing another dept
-                        title={
-                          mode === "draw"
-                            ? "Finish current drawing first"
-                            : "Edit this department's area"
-                        }
+                        disabled={mode === "draw"}
                       >
-                        {selectedDepartment === index && mode === "draw"
-                          ? "Drawing"
-                          : "Edit Area"}
+                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path></svg>
                       </button>
                       <button
                         onClick={() => {
                           if (
                             window.confirm(
-                              'Are you sure you want to delete department "' +
+                              'Delete profit center "' +
                                 dept.name +
-                                '"?',
+                                '" mapping?',
                             )
                           )
                             deleteDepartment(index);
                         }}
-                        className="border border-gray-600 px-2 py-0.5 bg-red-600 text-gray-800 rounded text-xs font-medium hover:bg-red-700"
-                        disabled={mode === "draw"} // Disable if drawing
-                        title={
-                          mode === "draw"
-                            ? "Finish current drawing first"
-                            : "Delete this department"
-                        }
+                        className="p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors border border-red-100"
+                        disabled={mode === "draw"}
                       >
-                        Del
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
                       </button>
                     </div>
                   </div>
@@ -1120,7 +1109,7 @@ const StoreHeatmap = () => {
         {/* End Control Panel */}
         {/* Canvas Area (Right Side) */}
         <div
-          className="flex-1 relative bg-gray-200 overflow-auto"
+          className="flex-1 relative bg-surface-gray overflow-auto"
           style={{
             width: "100%",
             height: "100%",
@@ -1132,14 +1121,13 @@ const StoreHeatmap = () => {
         >
           {floorPlanImage ? (
             <div className="absolute inset-0">
-              {/* Canvas setup for high-DPI drawing scaled via CSS */}
               <canvas
                 ref={canvasRef}
                 onClick={handleCanvasClick}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUpOrLeave}
-                onMouseLeave={handleMouseUpOrLeave} // Important to stop dragging if mouse leaves canvas
+                onMouseLeave={handleMouseUpOrLeave}
                 onWheel={handleWheel}
                 style={{
                   cursor:
@@ -1148,21 +1136,24 @@ const StoreHeatmap = () => {
                       : isDragging
                         ? "grabbing"
                         : "grab",
-                  // Width and height are set dynamically in useEffect based on container
                 }}
               />
             </div>
           ) : (
-            <div className="h-full flex items-center justify-center text-gray-500">
-              <p className="text-lg p-8 text-center">
-                Upload a floor plan image using the controls on the left.
-              </p>
+            <div className="h-full flex items-center justify-center text-gray-400">
+              <div className="text-center p-12 glass-card max-w-md">
+                <div className="w-16 h-16 bg-brand-teal/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                </div>
+                <h3 className="text-xl font-heading font-bold text-brand-navy mb-2">Awaiting Infrastructure</h3>
+                <p className="text-sm">Upload a store floor plan to initialize the intelligence dashboard.</p>
+              </div>
             </div>
           )}
 
-          {/* Zoom Controls Overlay - Placed over the canvas area */}
+          {/* Zoom Controls Overlay */}
           {floorPlanImage && (
-            <div className="absolute bottom-4 right-4 bg-white bg-opacity-80 p-1 rounded border border-gray-300 shadow-md flex items-center space-x-1">
+            <div className="absolute bottom-6 right-6 p-1.5 glass-card flex items-center space-x-2">
               <button
                 onClick={() =>
                   handleWheel({
@@ -1175,13 +1166,13 @@ const StoreHeatmap = () => {
                       canvasRef.current?.clientHeight / 2 +
                         canvasRef.current?.getBoundingClientRect().top || 0,
                   })
-                } // Simulate wheel event centered
-                className="px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-bold"
+                }
+                className="w-8 h-8 flex items-center justify-center bg-white hover:bg-brand-teal/10 text-brand-teal rounded-lg font-bold transition-colors"
                 title="Zoom In"
               >
                 +
               </button>
-              <span className="px-2 py-1 text-xs font-semibold w-12 text-center">
+              <span className="px-2 py-1 text-xs font-bold w-12 text-center tabular-nums text-brand-navy">
                 {Math.round(zoom * 100)}%
               </span>
               <button
@@ -1196,18 +1187,19 @@ const StoreHeatmap = () => {
                       canvasRef.current?.clientHeight / 2 +
                         canvasRef.current?.getBoundingClientRect().top || 0,
                   })
-                } // Simulate wheel event centered
-                className="px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-bold"
+                }
+                className="w-8 h-8 flex items-center justify-center bg-white hover:bg-brand-teal/10 text-brand-teal rounded-lg font-bold transition-colors"
                 title="Zoom Out"
               >
                 -
               </button>
+              <div className="w-px h-4 bg-border-light mx-1"></div>
               <button
                 onClick={() => {
                   setZoom(1);
                   setPan({ x: 0, y: 0 });
                 }}
-                className="ml-1 px-2 py-1 bg-blue-500 text-gray-800 hover:bg-blue-600 rounded text-xs"
+                className="px-3 py-1.5 bg-brand-teal text-white hover:bg-brand-teal-dark rounded-lg text-xs font-bold transition-colors"
                 title="Reset View"
               >
                 Reset
@@ -1222,4 +1214,4 @@ const StoreHeatmap = () => {
   );
 };
 
-export default StoreHeatmap;
+export default PharmIQHeatMap;

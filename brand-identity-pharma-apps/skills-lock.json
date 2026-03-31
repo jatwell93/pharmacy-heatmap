@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "brand-designer": {
+      "source": "daffy0208/ai-dev-standards",
+      "sourceType": "github",
+      "computedHash": "bc3eec10bbcc4266155e46d38de1256ec4cac7dae5554f67b6180100c7fe41d6"
+    },
+    "brand-strategist": {
+      "source": "borghei/claude-skills",
+      "sourceType": "github",
+      "computedHash": "193b30f0b0518ac1fb26c1550f68b5e02246796cb48ce38408b83c723edc002a"
+    }
+  }
+}
