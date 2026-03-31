@@ -887,24 +887,8 @@ const PharmIQHeatMap = () => {
               </div>
             )}
           </div>
-                      departments.some((d) => d.name === newDeptName.trim())
-                        ? "Department name already exists"
-                        : ""
-                    }
-                  >
-                    Create
-                  </button>
-                </div>
-                <button
-                  onClick={() => setShowDeptSelector(false)}
-                  className="w-full mt-2 border border-gray-600 bg-gray-400 hover:bg-gray-500 text-gray-800 px-3 py-1 rounded text-xs"
-                >
-                  Cancel
-                </button>
-              </div>
-            )}
 
-            {/* Drawing Mode Controls */}
+          {/* Drawing Mode Controls */}
             {mode === "draw" &&
               selectedDepartment !== null &&
               departments[selectedDepartment] && (
