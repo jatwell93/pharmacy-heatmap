@@ -1,6 +1,7 @@
 # PharmIQ — Brand Style Guide
-> **Version 1.2** | March 2026 | Status: Ready for Implementation
-> Prepared for design and development teams.
+> **Version 2.0** | May 2026 | Status: Production Ready
+> Prepared for design and development teams. Supersedes v1.2.
+> *Informed by design system analysis of Linear, Resend, and Mintlify.*
 
 ---
 
@@ -12,9 +13,12 @@
 | **Tagline** | "Infrastructure for Choice. Clarity for Growth." |
 | **Primary Color** | Teal `#0F766E` |
 | **Accent Color** | Amber `#D97706` |
-| **Dark Base** | Navy `#0F172A` |
-| **Primary Font** | Space Grotesk (platform) / Bricolage Grotesque (worker tools) |
+| **Dark Canvas** | Deep Navy `#070E1A` |
+| **Display Font** | Fraunces (variable serif — Google Fonts) |
+| **Heading/UI Font** | Outfit (geometric sans — Google Fonts) |
 | **Body Font** | Inter |
+| **Mono Font** | JetBrains Mono |
+| **Consumer Font** | Bricolage Grotesque + DM Sans |
 | **Logo Style** | Combination Mark — Hex-chart icon + wordmark |
 | **Brand Personality** | Expert Friend · Infrastructure · Moment of Clarity · Professional Assurance |
 | **Core Audience** | Independent pharmacists, pharmacy owners, multi-site pharmacy networks |
@@ -50,7 +54,7 @@ PharmIQ changes this. We provide a **professional assurance system** that gives 
 | **Professional Assurance** | We move beyond 'utility' to provide systemized trust and regulatory peace of mind | Wage compliance audits, expiry protection, automated returns |
 | **Operational Speed** | Designed for the 'Distracted Pharmacist': high-speed, command-driven, and minimalist | ⌘K search, auto-fill logic, succinct data entry |
 | **Infrastructure for Choice** | We are the open, interoperable backbone that connects with national health standards | HL7 FHIR alignment, PBS/eRx integration, buying group compatibility |
-| **Clinical Dignity** | Our tools reflect the sophistication of the profession — no 'playful' or 'gamey' UI | Liquid glass aesthetics, visionary typography, visual calm |
+| **Clinical Dignity** | Our tools reflect the sophistication of the profession — no 'playful' or 'gamey' UI | Surface-led hierarchy, editorial typography, visual calm |
 
 ---
 
@@ -171,8 +175,6 @@ PharmIQ is the **Expert Infrastructure Partner** — the silent, reliable backbo
 - **Newsletter:** `This month's biggest dead-stock culprit across Australian pharmacies? Sunscreen. Here's what to do.`
 - **Onboarding:** `You're 2 minutes from your first insight — let's go`
 
-> **Full voice guide:** See Sections 2.1–2.4 for the complete framework.
-
 ---
 
 ### 2.1 Voice Overview
@@ -272,75 +274,138 @@ Use these as the narrative scaffolding for case studies, testimonials, and ad co
 Every competitor in Australian pharmacy tech defaults to blue (clinical trust) or green (health/pharmacy cross). Teal occupies the intersection — it inherits the trust of blue and the health associations of green, while being visually distinct. Paired with Australian amber/gold, it creates a palette that is unmistakably healthcare-professional without blending into the sea of blue competitors.
 
 **Why Amber?**
-Amber/ochre has strong visual associations with the Australian landscape — the ochre of the outback, the warmth of the sun. In UI terms it functions as an alert/attention color (warnings, expiry flags, dead-stock notices) that aligns naturally with its urgency function. It also creates warmth and approachability against the cooler teal.
+Amber/ochre has strong visual associations with the Australian landscape — the ochre of the outback, the warmth of the sun. In UI terms it functions as an alert/attention color (warnings, expiry flags, dead-stock notices) that aligns naturally with its urgency function. Amber is intentionally **scarce** — it appears only where urgency is real. When amber appears, the pharmacist knows to pay attention.
 
-**Why Plus Jakarta Sans + Inter?**
-Plus Jakarta Sans brings geometric confidence and a premium SaaS quality to headings. Inter is the gold standard for screen legibility in data-heavy UIs. Together they create a typographic hierarchy that feels modern and intelligent without clinical stiffness.
+**Why Fraunces as the display typeface?**
+Fraunces is a variable optical-size serif (Google Fonts) with genuine character at large display sizes — crisp, authoritative, with subtle warmth in its letterforms. It plays the same role Domaine Display plays at Resend: editorial authority that elevates the brand above pure utility software. No AU pharmacy tech competitor uses serif display type. This is unoccupied territory that reinforces "Expert Friend" positioning.
+
+**Why Outfit for UI headings?**
+Outfit is a clean geometric sans with wider, more open apertures than Space Grotesk — different from both XTender's Plus Jakarta Sans and from the overused startup-sans aesthetic. It sits cleanly above Inter at every heading size and reads as confident without shouting.
+
+**Why Inter for body?**
+Inter is the gold standard for data-dense B2B SaaS UIs. Its tabular numeral support is critical for pharmacy metrics. Every pharmacist who uses a computer already reads Inter — it creates zero friction.
 
 ---
 
-### 3.2 Color Palette
+### 3.2 Color System v2
 
-#### Primary Colors
+#### 3.2.1 Brand Colors (Scarce — Use with Intention)
 
-| Name | Hex | RGB | HSL | Usage |
-|------|-----|-----|-----|-------|
-| **PharmIQ Teal** | `#0F766E` | 15, 118, 110 | 176°, 77%, 26% | Primary brand, CTAs, headers, links |
-| **Teal Light** | `#14B8A6` | 20, 184, 166 | 173°, 80%, 40% | Hover states, illustrated elements |
-| **Teal Dark** | `#0D5D5A` | 13, 93, 90 | 178°, 76%, 21% | Pressed states, deep emphasis |
+| Name | Hex | Usage |
+|------|-----|-------|
+| **PharmIQ Teal** | `#0F766E` | CTAs, active states, logo mark, focus rings, chart series 1 |
+| **Teal Light** | `#14B8A6` | Hover states on teal elements, illustrated highlights |
+| **Teal Dark** | `#0D5D5A` | Pressed/active states, deep teal emphasis |
+| **Teal 50** | `#F0FDFA` | Row hover, selected row backgrounds |
+| **Teal 100** | `#CCFBF1` | Selected backgrounds, teal fills |
+| **PharmIQ Amber** | `#D97706` | Expiry alerts, dead-stock flags, urgency indicators |
+| **Amber Light** | `#FDE68A` | Alert card backgrounds |
+| **Amber Dark** | `#92400E` | Alert text on light backgrounds — meets AA contrast |
+| **Amber 50** | `#FFFBEB` | Warning surface backgrounds |
 
-#### Accent Colors
+**Scarcity Rules — read before using any brand color:**
 
-| Name | Hex | RGB | Usage |
-|------|-----|-----|-------|
-| **PharmIQ Amber** | `#D97706` | 217, 119, 6 | Alerts, expiry warnings, dead-stock flags, CTA on dark |
-| **Amber Light** | `#FDE68A` | 253, 230, 138 | Alert backgrounds, warning fills |
-| **Amber Dark** | `#92400E` | 146, 64, 14 | Alert text on light backgrounds |
+| Color | Reserve for | Never use for |
+|-------|-------------|---------------|
+| Teal | CTAs, active states, brand mark, focus ring, chart primary | Section backgrounds, card fills, decorative borders, second button in same row |
+| Amber | Expiry warnings, dead-stock flags, one urgency badge per screen, physical accent stripe | Decorative backgrounds, navigation, multiple elements in same viewport, anything not urgent |
 
-#### Foundation Colors
+> **Rule of Thumb:** If more than one amber element is visible at rest (not an alert firing), reduce. If teal appears more than twice on a screen as a non-interactive element, reduce. Both colors earn their presence through restraint.
 
-| Name | Hex | RGB | Usage |
-|------|-----|-----|-------|
-| **PharmIQ Navy** | `#0F172A` | 15, 23, 42 | Primary text, headings, nav backgrounds |
-| **Navy Mid** | `#1E3A5F` | 30, 58, 95 | Card headers, sidebar |
-| **Sky Blue** | `#0EA5E9` | 14, 165, 233 | Secondary tech accent, chart series 2 |
+---
 
-#### Neutral Palette
+#### 3.2.2 Surface Ladder — Light Mode (Primary)
 
-| Name | Hex | RGB | Usage |
-|------|-----|-----|-------|
-| **Surface White** | `#FFFFFF` | 255, 255, 255 | Page backgrounds |
-| **Surface Gray** | `#F8FAFC` | 248, 250, 252 | Card backgrounds, sidebars |
-| **Border Light** | `#E2E8F0` | 226, 232, 240 | Dividers, input borders |
-| **Border Mid** | `#CBD5E1` | 203, 213, 225 | Table separators, form fields |
-| **Text Primary** | `#0F172A` | 15, 23, 42 | Headings, primary content |
-| **Text Secondary** | `#475569` | 71, 85, 105 | Body text, descriptions |
-| **Text Muted** | `#94A3B8` | 148, 163, 184 | Captions, placeholders, disabled |
+Depth is built through surface lift, not drop shadows. Use adjacent surfaces from this ladder for hierarchy.
 
-#### Semantic Colors
+| Token | Hex | Use |
+|-------|-----|-----|
+| `canvas` | `#FFFFFF` | Page backgrounds, primary surface |
+| `surface-1` | `#F8FAFC` | Card backgrounds, sidebar fills |
+| `surface-2` | `#F1F5F9` | Elevated cards, hover states, nested panels |
+| `surface-3` | `#E2E8F0` | Deep hierarchy chips, strong dividers |
 
-| State | Hex | Usage |
-|-------|-----|-------|
-| **Success** | `#10B981` | Positive trends, completions, in-stock |
-| **Warning** | `#D97706` | Expiry approaching, low stock (uses Amber) |
-| **Critical** | `#EF4444` | Expired items, critical stock-out, errors |
-| **Info** | `#0EA5E9` | System notifications, informational states |
+---
 
-#### Amber Usage Restraint
+#### 3.2.3 Surface Ladder — Dark Canvas (Marketing / Hero)
 
-Amber is a **sharp accent, not a theme.** It works because it appears selectively. Overuse dilutes its alert signal and makes the UI feel busy or anxious.
+The marketing site and hero sections use a deep navy dark canvas. The existing PharmIQ Navy becomes Surface 1 on the dark ladder — it's always been the right tone, just repositioned in the hierarchy.
 
-| Amber is correct for | Amber should NOT be used for |
-|---------------------|------------------------------|
-| Expiry alerts, dead-stock warnings | Decorative backgrounds, borders |
-| Amber CTA buttons (dark hero sections only) | Primary navigation elements |
-| Heat-map "hot" cells | Section dividers, card accents |
-| Key stat callout pills | Illustrations, icon fills at scale |
-| Physical accent stripe (pull-up banners, merchandise) | Multiple elements on a single screen simultaneously |
+| Token | Hex | Use |
+|-------|-----|-----|
+| `canvas-dark` | `#070E1A` | Marketing hero background, dark section anchor |
+| `dark-surface-1` | `#0F172A` | Elevated cards on dark canvas (existing PharmIQ Navy) |
+| `dark-surface-2` | `#1E293B` | Feature cards, pricing tiers on dark |
+| `dark-surface-3` | `#273549` | Further elevated, inline code blocks |
+| `dark-surface-4` | `#334155` | Highest elevation on dark canvas |
 
-**Rule of thumb:** If more than one amber element appears in the same viewport at rest (not in an alert state), reduce. Teal carries the brand — amber creates urgency.
+---
 
-#### Data Visualization Palette (Accessible)
+#### 3.2.4 Hairline Borders
+
+Translucent borders replace traditional border colors. They adapt to whatever surface they sit on.
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `hairline` | `rgba(15,23,42,0.08)` | Light mode row dividers, section separators |
+| `hairline-strong` | `rgba(15,23,42,0.14)` | Card borders, input borders, table rules |
+| `hairline-focus` | `#0F766E` | Focus rings — always teal |
+| `dark-hairline` | `rgba(241,245,249,0.08)` | Dark mode dividers |
+| `dark-hairline-strong` | `rgba(241,245,249,0.15)` | Dark card borders, dark input borders |
+
+---
+
+#### 3.2.5 Atmospheric Glows
+
+Soft radial gradients used as section openers — they set the tone for the section without painting over it. Never used as solid surfaces or button fills.
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `teal-glow` | `rgba(15,118,110,0.18)` | Dark canvas teal section openers |
+| `amber-glow` | `rgba(217,119,6,0.14)` | Dark canvas urgency / alert section washes |
+| `teal-glow-light` | `rgba(15,118,110,0.06)` | Light canvas subtle depth behind hero panels |
+
+**Rendering pattern:** Radial gradient, anchored to top-center of the section, falling off to transparent within 480–600px. One glow per section — never two in the same viewport.
+
+```css
+/* Example teal section opener on dark canvas */
+.section-teal-hero {
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(15,118,110,0.18) 0%, transparent 100%),
+    #070E1A;
+}
+```
+
+---
+
+#### 3.2.6 Ink (Text) Hierarchy
+
+| Token | Value | Use |
+|-------|-------|-----|
+| `ink` | `#0F172A` | All headings, emphasized body type (light mode) |
+| `ink-muted` | `#475569` | Secondary body copy, descriptions |
+| `ink-subtle` | `#94A3B8` | Captions, placeholders — **decorative only, never informational** |
+| `ink-tertiary` | `#CBD5E1` | Disabled states, footnotes |
+| `ink-on-dark` | `#F1F5F9` | All text on dark canvas |
+| `ink-on-dark-muted` | `rgba(241,245,249,0.72)` | Secondary text on dark canvas |
+| `ink-on-dark-subtle` | `rgba(241,245,249,0.45)` | Captions, meta on dark canvas |
+
+---
+
+#### 3.2.7 Semantic Colors
+
+| State | Light | Background | Dark Mode |
+|-------|-------|------------|-----------|
+| **Success** | `#10B981` | `#ECFDF5` | `#34D399` |
+| **Warning** | `#D97706` | `#FFFBEB` | `#FBBF24` |
+| **Critical** | `#EF4444` | `#FEF2F2` | `#F87171` |
+| **Info** | `#0EA5E9` | `#F0F9FF` | `#38BDF8` |
+| **Dead-Stock** | `#8B5CF6` | `#F5F3FF` | `#A78BFA` |
+| **Listed (trade)** | `#0EA5E9` | `#F0F9FF` | `#38BDF8` |
+
+---
+
+#### 3.2.8 Data Visualization Palette
 
 | Series | Hex | Purpose |
 |--------|-----|---------|
@@ -351,8 +416,7 @@ Amber is a **sharp accent, not a theme.** It works because it appears selectivel
 | Series 5 | `#10B981` | Growth metric (Green) |
 | Series 6 | `#F43F5E` | Negative/loss metric (Rose) |
 
-> All series pairs meet minimum 3:1 contrast ratio when placed on `#F8FAFC` background.
-> Never use Series 3 (Amber) and Series 6 (Rose) as the only distinction — add icons.
+> Never use Series 3 (Amber) and Series 6 (Rose) as the only distinction — add icons for accessibility.
 
 #### Heat Map Scale (Sales Heat-Map Dashboard)
 
@@ -367,84 +431,123 @@ Amber is a **sharp accent, not a theme.** It works because it appears selectivel
 
 ---
 
-### 3.3 Typography
+### 3.3 Typography v2
 
-PharmIQ uses a **two-tier typography system** — one for B2B platform products (pharmacy owner tools) and one for consumer-facing worker tools. Both share the teal brand and colour palette; the fonts are tuned to their respective audiences.
+PharmIQ uses a **three-tier typography system.** The display family carries editorial authority. The heading family carries operational clarity. The body family carries legibility at scale. Each has a strict lane.
 
-> **DEFAULT:** When in doubt, use **Space Grotesk + Inter**. This is the correct choice for all platform products, website, marketing, decks, and social content. Only switch to Bricolage Grotesque + DM Sans when the product is explicitly targeting workers/employees (e.g. Pay Checker). If you're not sure, default to Space Grotesk + Inter.
+---
 
-#### Platform Products (Dashboard, Expiry Mate, B2B SaaS)
+#### 3.3.1 Platform Products — B2B Dashboard, Marketing, Website
 
-Audience: pharmacy owners, managers, multi-site operators — expert users making business decisions.
+**DEFAULT:** When in doubt, use **Outfit + Inter**. Fraunces is reserved for display-sized hero moments (48px+). Outfit handles all headings (h1–h4), navigation, and UI labels. Inter handles all body copy, descriptions, and captions.
 
 ```css
---font-heading: 'Space Grotesk', 'Sora', system-ui, sans-serif;
---font-body:    'Inter', system-ui, -apple-system, sans-serif;
---font-data:    'Inter', 'Tabular Figures', system-ui, sans-serif;
---font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+--font-display:  'Fraunces', 'Georgia', 'Times New Roman', serif;
+--font-heading:  'Outfit', 'DM Sans', system-ui, sans-serif;
+--font-body:     'Inter', system-ui, -apple-system, sans-serif;
+--font-mono:     'JetBrains Mono', 'Fira Code', monospace;
 ```
 
-**Why Space Grotesk?**
-Competitive research confirmed XTender uses Plus Jakarta Sans — the most common premium-SaaS font choice in the category. Space Grotesk has a subtly distinct character: slightly condensed, with quirky optical details in letters like 'a', 'e', and 'G' that give it personality without sacrificing professionalism. It's used by Plaid, Linear, and Vercel. Available free on Google Fonts. Pairs excellently with Inter for body.
-
-**Load Order (Google Fonts):**
+**Google Fonts load order:**
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+```
+
+**Why Fraunces?**
+Fraunces is a variable optical-size serif with no equivalent in the AU pharmacy tech space. At display sizes (48px+) with `font-optical-sizing: auto`, it reads as editorial and authoritative — the typographic equivalent of the "Expert Friend" brand voice. Its subtle quirks (notably the distinctive 'f', 'y', and 'Q') create visual interest without compromising legibility. Fraunces at 56px does for PharmIQ's hero sections what Domaine Display does for Resend — it lifts the brand above utility software.
+
+**Why Outfit?**
+Outfit's geometric construction and open apertures are clean and confident without the overused "startup sans" feeling that Space Grotesk has accumulated. Its character set handles all dashboard headings, card titles, and navigation without creating visual fatigue. Distinct from XTender's Plus Jakarta Sans and from Pharmacy Halo's typography.
+
+---
+
+#### 3.3.2 Type Scale
+
+| Token | Family | Size | Weight | Line Height | Letter Spacing | Use |
+|-------|--------|------|--------|-------------|----------------|-----|
+| `display-xl` | Fraunces | 64px | 600 | 1.05 | −0.015em | Hero marketing headline — one per page |
+| `display-lg` | Fraunces | 48px | 600 | 1.08 | −0.012em | Section opener headlines |
+| `display-md` | Fraunces | 40px | 400 | 1.10 | −0.010em | Hero sub-headlines, large callouts |
+| `h1` | Outfit | 36px | 700 | 1.20 | −0.015em | Page titles, dashboard headings |
+| `h2` | Outfit | 28px | 700 | 1.25 | −0.012em | Section headings, card group titles |
+| `h3` | Outfit | 22px | 600 | 1.30 | −0.008em | Card headings, pricing tier names |
+| `h4` | Outfit | 18px | 600 | 1.35 | −0.005em | Sub-sections, sidebar group labels |
+| `body-lg` | Inter | 18px | 400 | 1.65 | 0 | Lead body copy, hero subheadlines |
+| `body` | Inter | 16px | 400 | 1.60 | 0 | Standard body |
+| `body-sm` | Inter | 14px | 400 | 1.50 | 0 | Card body, secondary descriptions |
+| `eyebrow` | Outfit | 12px | 600 | 1.30 | +0.06em | Section labels, category tags — positive tracking |
+| `label` | Inter | 13px | 500 | 1.40 | +0.01em | UI labels, navigation items |
+| `caption` | Inter | 12px | 400 | 1.40 | 0 | Timestamps, meta, footnotes |
+| `button-lg` | Outfit | 15px | 600 | 1.20 | 0 | Hero CTA buttons |
+| `button` | Inter | 14px | 500 | 1.20 | 0 | Standard buttons |
+| `data-xl` | Inter | 36px | 700 | 1.10 | −0.020em | Dashboard hero KPIs — tabular-nums |
+| `data-lg` | Inter | 28px | 600 | 1.15 | −0.015em | Module KPIs — tabular-nums |
+| `data` | Inter | 15px | 400 | 1.45 | 0 | Table cells, inline metrics — tabular-nums |
+| `mono` | JetBrains Mono | 13px | 400 | 1.60 | 0 | Code, PBS codes, batch numbers |
+
+> **Critical:** All data values (tables, charts, KPI tiles, pricing) must use `font-variant-numeric: tabular-nums` to prevent layout shift when values update.
+
+**Eyebrow pattern:**
+```css
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted); /* or teal on dark canvas */
+}
 ```
 
 ---
 
-#### Consumer / Worker Tools (Pay Checker and similar)
+#### 3.3.3 Fraunces Variable Font Axes
 
-Audience: pharmacy, retail, and hospitality workers — often young, often on mobile, checking their own pay after a shift. Potentially stressed. The tool must feel like it's on their side, not like corporate HR software.
+Fraunces has three variable axes — use them intentionally:
+
+| Axis | Range | Default | Marketing Use | Dashboard Use |
+|------|-------|---------|---------------|---------------|
+| `wght` (Weight) | 100–900 | 400 | 600 for display, 400 for body | 700 for h1, 600 for h2–h3 |
+| `opsz` (Optical Size) | 9–144 | 12 | auto (browser handles) | auto |
+| `SOFT` (Softness) | 0–100 | 0 | 0–10 for sharp authority | 0 for clean precision |
+
+```css
+/* Marketing hero — Fraunces at display scale */
+.hero-headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 0, 'WONK' 0;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+```
+
+---
+
+#### 3.3.4 Consumer / Worker Tools (Pay Checker and similar)
+
+Audience: pharmacy, retail, and hospitality workers — often young, on mobile, checking their pay. The tool must feel warm and on their side, not like employer-facing HR software.
 
 ```css
 --font-heading: 'Bricolage Grotesque', system-ui, sans-serif;
 --font-body:    'DM Sans', system-ui, -apple-system, sans-serif;
 ```
 
-**Why Bricolage Grotesque?**
-Space Grotesk reads as "professional SaaS" — correct for pharmacy owners, but slightly cold for workers checking if they've been underpaid. Bricolage Grotesque is a variable-weight font with an optical size axis, giving it more warmth and visual personality at bold display weights without sacrificing legibility. It's distinctive, approachable, and confident — exactly the tone a worker advocacy tool should project.
-
-**Why DM Sans?**
-Inter is the gold standard for dense data UIs. DM Sans has a warmer, more humanist quality that suits consumer-facing apps where the user isn't a professional analyst. Same legibility, softer character.
-
-**Load Order (Google Fonts):**
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-```
-
-**Heading CSS for consumer products:**
-```css
-h1, h2, h3, h4 {
-  font-optical-sizing: auto; /* uses Bricolage's opsz axis */
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-```
-
-#### Type Scale
-
-| Token | Element | Desktop Size | Mobile Size | Weight | Line Height | Letter Spacing |
-|-------|---------|-------------|-------------|--------|-------------|----------------|
-| `--text-display` | Hero headings | 56px | 36px | 800 | 1.1 | -0.02em |
-| `--text-h1` | Page titles | 40px | 32px | 700 | 1.2 | -0.01em |
-| `--text-h2` | Section headings | 32px | 26px | 700 | 1.25 | -0.01em |
-| `--text-h3` | Card headings | 24px | 20px | 600 | 1.3 | 0 |
-| `--text-h4` | Sub-sections | 20px | 18px | 600 | 1.35 | 0 |
-| `--text-body-lg` | Lead body | 18px | 18px | 400 | 1.65 | 0 |
-| `--text-body` | Standard body | 16px | 16px | 400 | 1.6 | 0 |
-| `--text-body-sm` | Secondary body | 14px | 14px | 400 | 1.5 | 0 |
-| `--text-label` | UI labels, nav | 13px | 13px | 500 | 1.4 | 0.01em |
-| `--text-caption` | Timestamps, meta | 12px | 12px | 400 | 1.4 | 0.01em |
-| `--text-data-lg` | Dashboard KPIs | 32px | 28px | 600 | 1.2 | -0.02em |
-| `--text-data` | Table cells, metrics | 15px | 15px | 400 | 1.45 | 0 |
-
-> **Critical rule:** All data values in tables, charts, and metrics MUST use `font-variant-numeric: tabular-nums` to prevent layout shift when values update.
+| Role | Font | Size | Weight |
+|------|------|------|--------|
+| App name / hero | Bricolage Grotesque | 28–32px | 800 |
+| Section headings (h2) | Bricolage Grotesque | 20px | 700 |
+| Sub-headings (h3) | Bricolage Grotesque | 18px | 600 |
+| Form labels | DM Sans | 16px | 500 |
+| Body / list text | DM Sans | 16px | 400 |
+| Button labels | DM Sans | 16px | 500 |
+| Table headers | DM Sans | 14px | 600 |
+| Table cell data | DM Sans | 14px | 400, tabular-nums |
+| Status badges / captions | DM Sans | 12px | 500 |
 
 ---
 
@@ -456,7 +559,7 @@ The PharmIQ mark fuses two forms:
 - A **hexagon** — the universal language of pharmacy (dispensary symbol, molecular structure, precision)
 - An **ascending chart line/bars** embedded within — representing business intelligence, growth, and data clarity
 
-The hexagon is subtly open at the top-right, suggesting that the data is always flowing, never static. The wordmark "PharmIQ" uses Plus Jakarta Sans 700 with the "IQ" rendered in PharmIQ Teal against the navy wordmark — visually punctuating the intelligence positioning.
+The hexagon is subtly open at the top-right, suggesting that the data is always flowing, never static. The wordmark "PharmIQ" uses Outfit 700 with the "IQ" rendered in PharmIQ Teal against the dark ink wordmark — visually punctuating the intelligence positioning.
 
 #### Logo Variants
 
@@ -466,29 +569,28 @@ The hexagon is subtly open at the top-right, suggesting that the data is always 
 | **Stacked (vertical)** | SVG, PNG (2×, 3×) | App loading screens, social profile images, merchandise |
 | **Icon Only** | SVG, PNG (16px–512px) | Favicons, app icons, small digital spaces, watch faces |
 | **Wordmark Only** | SVG, PNG | When icon has been established nearby |
-| **Reversed (white)** | SVG, PNG | On dark/navy backgrounds, Teal backgrounds |
+| **Reversed (white)** | SVG, PNG | On dark canvas, dark-surface-1 backgrounds, teal fills |
 | **Monochrome** | SVG, PNG | Single-colour print, embroidery, embossing |
 
 #### Color Combinations
 
 | Background | Logo Version |
 |------------|-------------|
-| White / Light Gray | Full colour (Navy wordmark + Teal IQ + Teal icon) |
-| PharmIQ Navy | Reversed white logo |
+| White / surface-1 / surface-2 | Full colour (Navy wordmark + Teal IQ + Teal icon) |
+| Dark canvas / dark-surface-1 | Reversed white logo |
 | PharmIQ Teal | White reversed logo |
-| Black | White reversed logo |
-| Photography | White reversed logo (ensure contrast) |
-| Amber (limited use) | Navy logo only |
+| Photography | White reversed logo (ensure ≥3:1 contrast) |
+| Amber (rare physical use) | Navy logo only |
 
 #### Clear Space Rules
 
-Minimum clear space = **1× the height of the "Q" in the wordmark** on all sides.
+Minimum clear space = **1× the cap-height of the "Q" in the wordmark** on all sides.
 
 ```
    ┌─────────────────────────────────┐
-   │       [1× Q-height padding]     │
+   │       [1× Q cap-height]         │
    │  ◇  PharmIQ                     │
-   │       [1× Q-height padding]     │
+   │       [1× Q cap-height]         │
    └─────────────────────────────────┘
 ```
 
@@ -502,45 +604,35 @@ Minimum clear space = **1× the height of the "Q" in the wordmark** on all sides
 | Print — Full horizontal | 40mm |
 | Print — Icon | 8mm |
 | Email signature | 160px wide |
-| App icon (iOS/Android) | 1024×1024px master, export at all required sizes |
+| App icon (iOS/Android) | 1024×1024px master |
 
 #### Logo Don'ts
 
 - Do not rotate, skew, or distort
-- Do not recreate in a different font
+- Do not recreate in a different typeface
 - Do not use unapproved colour combinations
-- Do not add drop shadows, glows, or effects
+- Do not add drop shadows, glows, or effects to the mark itself
 - Do not change the relative sizing of icon to wordmark
 - Do not place on backgrounds with < 3:1 contrast
-- Do not enclose in a container shape (box, circle) — the icon itself provides this
+- Do not enclose in a container shape (box, circle) — the icon provides this
 
 ---
 
 ### 3.5 Iconography
 
-#### Icon Style
-
-PharmIQ uses **Lucide Icons** as the primary icon library — open source, consistent 24px grid, 1.5px stroke weight, 2px corner radius. This style:
-- Is clean and legible at small sizes (critical for data dashboards)
-- Has consistent visual weight across all icons
-- Supports theming via stroke colour tokens
-- Is accessible (can be paired with aria-labels)
-
-#### Icon Usage Rules
+PharmIQ uses **Lucide Icons** as the primary icon library — open source, consistent 24px grid, 1.5px stroke weight, 2px corner radius.
 
 | Rule | Standard |
 |------|---------|
 | **Base grid** | 24×24px (scale: 16px, 20px, 24px, 32px, 40px) |
 | **Stroke weight** | 1.5px at 24px base; scale proportionally |
 | **Corner radius** | 2px rounded caps and joins |
-| **Style consistency** | Stroke only (no fills) at 24px and below; optional thin fill at 32px+ |
+| **Style** | Stroke only (no fills) at 24px and below |
 | **Colour** | Always use semantic colour tokens, never raw hex |
 | **Touch target** | Minimum 44×44px interactive area regardless of icon size |
-| **Label pairing** | Icon + text label for navigation; icon-only only in high-context situations with tooltip |
+| **Label pairing** | Icon + text label for navigation; icon-only only with tooltip |
 
 #### Custom Icons (Brand-Specific)
-
-PharmIQ requires custom-designed icons for domain-specific concepts:
 
 | Concept | Description |
 |---------|-------------|
@@ -551,7 +643,7 @@ PharmIQ requires custom-designed icons for domain-specific concepts:
 | **Pharmacy Network** | Three hexagons connected by nodes |
 | **Data Sync** | Two arrows in circle with pharmacy cross centre |
 
-All custom icons must match Lucide's stroke weight and corner radius for visual consistency.
+All custom icons must match Lucide's stroke weight and corner radius.
 
 ---
 
@@ -560,83 +652,63 @@ All custom icons must match Lucide's stroke weight and corner radius for visual 
 #### Photography Style
 
 **Art direction principles:**
-1. **Real Australian pharmacies** — actual dispensaries, real Australian settings (not US stock photo pharmacies with different shelving)
-2. **People at work** — pharmacists and staff in action, not posed smiling at camera
-3. **Technology in context** — tablets, screens, and phones shown in pharmacy environments
-4. **Warm, natural light** — prefer daylight through shopfront windows over harsh fluorescent lighting
-5. **Authentic diversity** — reflect the actual diversity of Australian pharmacy staff and customers
+1. **Real Australian pharmacies** — actual dispensaries, Australian settings (not US stock photos)
+2. **People at work** — pharmacists in action, not posed for the camera
+3. **Technology in context** — tablets and phones shown in pharmacy environments
+4. **Warm, natural light** — daylight over harsh fluorescent lighting
+5. **Authentic diversity** — reflect the actual diversity of Australian pharmacy staff
 
-**What to show:**
-- Pharmacist reviewing dashboard on tablet behind dispensary
-- Close-up of medication shelves with organised stock
-- Multi-pharmacist teams collaborating around a screen
-- Pharmacy exterior (Australian context — small-format, community pharmacy)
-- Hands interacting with phone/tablet in pharmacy setting
-
-**What to avoid:**
-- Generic US-style stock pharmacy images (wrong shelf layouts, wrong drug labelling)
-- Overly staged "doctor-looking-at-camera" shots
-- Children taking medication (sensitive territory)
-- Hospital/clinical settings (PharmIQ is for community pharmacy, not clinical)
-- Purple or heavily saturated backgrounds that clash with palette
-
-**Colour treatment:**
-- Desaturate slightly and add warmth (+ 5–10% warm tone)
+**Photography colour treatment:**
+- Desaturate slightly and add warmth (+5–10% warm tone)
 - Boost mid-range contrast
-- Maintain teal/amber accents where present in scene
-- Photos must never use filters that conflict with brand palette
+- Photos must not use filters that conflict with brand palette
 
 #### Illustration Style
 
-Used for: onboarding, empty states, explainer sections, email headers.
-
-**Style:** Clean, modern flat illustration with subtle depth. Minimal gradients. Brand palette only. Characters are simple and gestural — not detailed portraits. Data visualisation elements (charts, grids, graphs) integrated naturally into scenes.
+**Style:** Clean, modern flat illustration. Minimal gradients. Brand palette only. Data visualisation elements (charts, grids, graphs) integrated naturally into scenes.
 
 **Rules:**
-- 2px consistent stroke weight on outlines
+- 2px consistent stroke weight
 - Brand palette only (Teal, Amber, Navy, neutrals)
 - Rounded corners: 4px on elements
 - No drop shadows — use tonal separation only
-- Characters: simplified, diverse, always in pharmacy/business context
-
-#### Data Visualisation Imagery
-
-For marketing/social use, data visualisations:
-- Use the brand data viz palette (6-colour accessible series above)
-- Include clear axis labels and legends
-- Use soft grid lines (Border Light `#E2E8F0`)
-- Show compelling insights (positive trends, problem-solution moments)
-- Always anonymise or aggregate data — no individual pharmacy names visible
 
 ---
 
 ## PART 4 — UI DESIGN SYSTEM
 
-### 4.0 When in Doubt: Five Default Decisions
+### 4.0 When in Doubt: Six Default Decisions
 
 | Decision | Default value | Token |
 |---------|--------------|-------|
-| **Page/screen background** | `#FFFFFF` white (light mode); `#0F172A` navy (dark mode) | `--surface-white` / `--color-navy` |
-| **Primary text colour** | `#0F172A` navy | `--text-primary` |
-| **Primary CTA button** | Teal `#0F766E`, white text, 8px radius, 40px height | `--color-teal` + `--btn-height-md` |
-| **Card padding** | 20px (`--space-5`) on all sides; 12px radius | `--space-5` + `--radius-lg` |
-| **Card border/shadow** | `1px solid #E2E8F0` border + `var(--shadow-sm)` | `--border-light` + `--shadow-sm` |
+| **Page background (light mode)** | `#FFFFFF` white | `canvas` |
+| **Page background (dark sections)** | `#070E1A` deep navy | `canvas-dark` |
+| **Primary text colour** | `#0F172A` navy | `ink` |
+| **Primary CTA button** | Teal `#0F766E`, white Outfit 600 label, 8px radius, 40px height | — |
+| **Card depth** | `surface-1` background + 1px `hairline-strong` border | — |
+| **Elevation mechanism** | Surface ladder → hairlines → atmospheric glows → shadows (last resort) | — |
 
 ---
 
-### 4.1 Design Principles: 2026 Vision
+### 4.1 Design Principles
 
-1. **Visual Calm & MOMENTS OF CLARITY** — Every pixel that isn't serving the data is noise. Minimize cognitive load for the 'Distracted Pharmacist'.
-2. **LIQUID GLASS Aesthetics** — Fluid, immersive interfaces using subtle shadows and layered glass-like surfaces to create depth without visual clutter.
-3. **BENTO-GRID Hierarchy** — Use modular, card-based layouts (bento boxes) to organize complex data into digestible pillars.
-4. **COMMAND-DRIVEN (⌘K)** — Power users in a high-pressure dispensary need keyboard-first navigation to jump between tools instantly.
-5. **PROGRESSIVE DISCLOSURE** — Show the most critical, actionable KPI first (e.g., '30 products expiring this week') and hide complexity behind secondary layers.
+1. **Surface-Led Hierarchy** — Depth comes from surface lift (`canvas` → `surface-1` → `surface-2`) and hairline borders, not decorative chrome or heavy shadows. The dark canvas IS the whitespace on marketing surfaces.
+
+2. **Scarcity Creates Signal** — Teal earns its place through restraint. Amber creates genuine urgency because it appears rarely. Both colors lose power the moment they become decoration.
+
+3. **Data as the Hero** — Product UI screenshots and data visualisations carry the marketing page. The chrome (nav, footer, cards) is a dark frame for the content. Lead every section with something real.
+
+4. **Type Carries Authority** — Fraunces display headlines do the brand lift. They should be the most memorable typographic moment on the page, not background texture.
+
+5. **Progressive Density** — Marketing surfaces are editorial and spacious (96px section padding). Dashboard surfaces are information-dense (20–24px card padding). Each layer has its register. Don't let them bleed into each other.
+
+6. **Accessible by Default** — All interactive elements ≥44px touch target. All body text ≥16px. Colour is never the only signal. Reduced-motion is respected.
 
 ---
 
 ### 4.2 Spacing System
 
-8px base grid (Material Design standard, WCAG-aligned).
+4px base grid.
 
 ```css
 --space-1:  4px;   /* Tight — icon-to-label gap */
@@ -644,137 +716,214 @@ For marketing/social use, data visualisations:
 --space-3:  12px;  /* Small — between related elements */
 --space-4:  16px;  /* Base — standard padding */
 --space-5:  20px;  /* Medium — card internal padding */
---space-6:  24px;  /* Large — section spacing */
---space-8:  32px;  /* XL — between sections */
+--space-6:  24px;  /* Large — section spacing, card padding */
+--space-8:  32px;  /* XL — between card groups */
 --space-10: 40px;  /* 2XL — major section gaps */
 --space-12: 48px;  /* 3XL — page-level breathing room */
---space-16: 64px;  /* Hero — display spacing */
+--space-16: 64px;  /* Hero — display section padding */
+--space-24: 96px;  /* Section — marketing section vertical padding */
 ```
 
 ---
 
 ### 4.3 Border Radius System
 
-```css
---radius-sm:   4px;    /* Badges, tags, chips */
---radius-md:   8px;    /* Buttons, inputs, small cards */
---radius-lg:   12px;   /* Cards, panels, modals */
---radius-xl:   16px;   /* Large modals, bottom sheets */
---radius-full: 9999px; /* Pills, avatar rings, progress bars */
-```
+| Token | Value | Use |
+|-------|-------|-----|
+| `radius-sm` | `4px` | Badges, tags, status chips |
+| `radius-md` | `8px` | **All buttons and inputs** |
+| `radius-lg` | `12px` | **All cards, panels, modals** |
+| `radius-xl` | `16px` | Product screenshot panels, large hero frames |
+| `radius-full` | `9999px` | Pills, avatar rings, toggle switches |
+
+**Strict radius vocabulary:** Buttons are always `radius-md` (8px). Cards are always `radius-lg` (12px). Pills are always `radius-full`. Never pill-round a CTA button — it reads as consumer/marketing, not professional infrastructure.
 
 ---
 
-### 4.4 Elevation / Shadow System
+### 4.4 Elevation & Depth
+
+**Primary mechanism: Surface Ladder + Hairlines**
+**Secondary: Atmospheric Glows (dark canvas only)**
+**Tertiary/Legacy: Box Shadows (light mode data surfaces only)**
+
+#### Elevation Levels
+
+| Level | Treatment | Use |
+|-------|-----------|-----|
+| **0 — flat** | `canvas` background, no border | Full-bleed sections, hero text, footer |
+| **1 — surface lift** | `surface-1` background + 1px `hairline-strong` | Default cards, sidebars, data panels |
+| **2 — elevated** | `surface-2` background + 1px `hairline-strong` | Featured pricing tier, hovered cards, dropdowns |
+| **3 — deep elevation** | `surface-3` background + 1px `hairline-strong` | Nested panels, tooltip surfaces |
+| **4 — focus ring** | 2px `#0F766E` outline, 2px offset | Focused inputs, focused buttons — always teal |
+| **Dark 1** | `dark-surface-1` + 1px `dark-hairline-strong` | Cards on dark canvas |
+| **Dark 2** | `dark-surface-2` + 1px `dark-hairline-strong` | Featured/elevated cards on dark canvas |
+| **Dark glow** | Radial `teal-glow` or `amber-glow` at section top | Section atmospheric depth on dark canvas |
+
+#### Legacy Shadows (light mode data surfaces only)
 
 ```css
---shadow-none: none;
---shadow-xs:   0 1px 2px rgba(15,23,42,0.06);                          /* Subtle lift */
---shadow-sm:   0 1px 3px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.06);  /* Cards */
---shadow-md:   0 4px 6px rgba(15,23,42,0.07), 0 2px 4px rgba(15,23,42,0.06);  /* Dropdowns */
---shadow-lg:   0 10px 15px rgba(15,23,42,0.10), 0 4px 6px rgba(15,23,42,0.05); /* Modals */
---shadow-xl:   0 20px 25px rgba(15,23,42,0.10), 0 8px 10px rgba(15,23,42,0.04); /* Overlays */
+--shadow-xs: 0 1px 2px rgba(15,23,42,0.06);
+--shadow-sm: 0 1px 3px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.06);
+--shadow-md: 0 4px 6px rgba(15,23,42,0.07), 0 2px 4px rgba(15,23,42,0.06);
+--shadow-lg: 0 10px 15px rgba(15,23,42,0.10), 0 4px 6px rgba(15,23,42,0.05);
 ```
+
+> Prefer hairline borders over shadows on cards. Use `shadow-sm` only on interactive cards that need hover lift. Never use shadows on the dark canvas.
 
 ---
 
-### 4.5 Component Language
+### 4.5 Component Vocabulary
+
+Components reference the token system. All button corners are `radius-md`. All card corners are `radius-lg`. All pills are `radius-full`.
 
 #### Buttons
 
-| Type | Background | Text | Border | Hover |
-|------|------------|------|--------|-------|
-| **Primary** | `#0F766E` (Teal) | `#FFFFFF` | none | `#0D5D5A` (Teal Dark) |
-| **Secondary** | Transparent | `#0F766E` | `#0F766E` 1.5px | `#F0FDFA` bg |
-| **Tertiary/Ghost** | Transparent | `#475569` | none | `#F8FAFC` bg |
-| **Danger** | `#EF4444` | `#FFFFFF` | none | `#DC2626` |
-| **Amber CTA** | `#D97706` | `#FFFFFF` | none | `#92400E` |
+| Component | Background | Text | Border | Height | Notes |
+|-----------|------------|------|--------|--------|-------|
+| `button-primary` | `#0F766E` (Teal) | `#FFFFFF` | none | 40px | Default CTA — Outfit 600 label |
+| `button-primary-hover` | `#0D5D5A` (Teal Dark) | `#FFFFFF` | none | 40px | |
+| `button-primary-lg` | `#0F766E` | `#FFFFFF` | none | 48px | Hero CTAs |
+| `button-secondary` | transparent | `#0F766E` | `1.5px #0F766E` | 40px | Secondary action |
+| `button-secondary-hover` | `#F0FDFA` | `#0D5D5A` | `1.5px #0D5D5A` | 40px | |
+| `button-ghost` | `surface-1` | `#475569` | `1px hairline-strong` | 40px | Tertiary action |
+| `button-ghost-hover` | `surface-2` | `#0F172A` | `1px hairline-strong` | 40px | |
+| `button-danger` | `#EF4444` | `#FFFFFF` | none | 40px | Destructive actions |
+| `button-amber` | `#D97706` | `#FFFFFF` | none | 40px | Dark hero CTA only |
+| `button-dark-primary` | `#F1F5F9` | `#070E1A` | none | 40px | Primary CTA on dark canvas |
+| `button-dark-ghost` | `dark-surface-2` | `#F1F5F9` | `1px dark-hairline-strong` | 40px | Secondary on dark canvas |
 
-Button sizing:
 ```css
---btn-height-sm: 32px;   /* Secondary actions, compact UI */
---btn-height-md: 40px;   /* Default */
---btn-height-lg: 48px;   /* Primary hero CTAs */
---btn-radius:    8px;
---btn-padding-x: 16px (sm), 20px (md), 24px (lg);
+/* Example: Primary button */
+.btn-primary {
+  height: 40px;
+  padding: 0 20px;
+  background: #0F766E;
+  color: #fff;
+  font-family: var(--font-heading); /* Outfit */
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms cubic-bezier(0.4,0,0.2,1);
+}
+.btn-primary:hover  { background: #0D5D5A; }
+.btn-primary:focus  { outline: 2px solid #0F766E; outline-offset: 2px; }
 ```
 
-#### Cards: Liquid Glass Pattern
+---
+
+#### Cards
 
 ```css
+/* Default card — light mode */
 .card {
-  background:    rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border:        1px solid rgba(226, 232, 240, 0.5);
-  border-radius: var(--radius-lg, 12px);
-  padding:       var(--space-5, 20px);
-  box-shadow:    var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.4);
+  background: var(--surface-1, #F8FAFC);
+  border: 1px solid rgba(15,23,42,0.14); /* hairline-strong */
+  border-radius: 12px; /* radius-lg */
+  padding: 20px; /* space-5 */
 }
 
+/* Elevated / featured card */
+.card--elevated {
+  background: var(--surface-2, #F1F5F9);
+  border: 1px solid rgba(15,23,42,0.14);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* KPI metric card */
 .card--metric {
-  /* KPI dashboard cards */
-  padding:       var(--space-6, 24px);
-  border-top:    3px solid var(--color-teal, #0F766E);
-  background:    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.8) 100%);
+  background: #FFFFFF;
+  border: 1px solid rgba(15,23,42,0.14);
+  border-radius: 12px;
+  padding: 24px;
+  border-top: 3px solid #0F766E; /* Teal top accent — earned, not decorative */
 }
 
+/* Alert card — expiry / dead-stock */
 .card--alert {
-  /* Expiry / dead-stock alert cards */
-  border-left:   4px solid var(--color-amber, #D97706);
-  background:    rgba(255, 251, 235, 0.9); /* Amber-50 with transparency */
+  background: #FFFBEB; /* amber-50 */
+  border: 1px solid rgba(217,119,6,0.25);
+  border-left: 4px solid #D97706; /* Amber accent — functional signal */
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Card on dark canvas */
+.card--dark {
+  background: #0F172A; /* dark-surface-1 */
+  border: 1px solid rgba(241,245,249,0.15); /* dark-hairline-strong */
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Featured card on dark canvas */
+.card--dark-elevated {
+  background: #1E293B; /* dark-surface-2 */
+  border: 1px solid rgba(241,245,249,0.15);
+  border-radius: 12px;
+  padding: 24px;
 }
 ```
 
-#### Form Fields: Succinct Entry Pattern
+---
 
-| Pattern | Implementation |
-|---------|----------------|
-| **Auto-fill** | Prefill data from POS integration wherever possible. |
-| **Integrated Search** | Use command-driven search (⌘K) for rapid product lookup. |
-| **Succinct Entry** | Minimize required fields. Use smart defaults. |
-| **Visual Feedback** | Instant margin/compliance results as data is entered. |
+#### Form Fields
 
 ```css
 .input {
-  height:          44px;
-  border:          1.5px solid rgba(203, 213, 225, 0.6);
-  border-radius:   var(--radius-md, 8px);
-  padding:         0 12px;
-  font-size:       16px;
-  color:           var(--text-primary, #0F172A);
-  background:      rgba(255, 255, 255, 0.9);
-  transition:      all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 44px;
+  padding: 0 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(15,23,42,0.14); /* hairline-strong */
+  border-radius: 8px; /* radius-md */
+  font-family: var(--font-body); /* Inter */
+  font-size: 16px; /* Never below 16px — prevents iOS zoom */
+  color: #0F172A;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .input:focus {
-  border-color:    var(--color-teal, #0F766E);
-  box-shadow:      0 0 0 4px rgba(15,118,110,0.1);
-  background:      #FFFFFF;
-  outline:         none;
+  border-color: #0F766E;
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.12);
+  outline: none;
+}
+
+.input:disabled {
+  background: var(--surface-2, #F1F5F9);
+  color: var(--ink-subtle, #94A3B8);
+  cursor: not-allowed;
 }
 ```
 
-#### Status Badges
+---
 
-```
-┌────────────────────────────────────────┐
-│  Badge variants:                        │
-│                                         │
-│  ● In Stock       #10B981 bg#ECFDF5    │
-│  ● Expiry <30d    #D97706 bg#FFFBEB    │
-│  ● Expired        #EF4444 bg#FEF2F2    │
-│  ● Dead Stock     #8B5CF6 bg#F5F3FF    │
-│  ● Out of Stock   #94A3B8 bg#F8FAFC    │
-│  ● Listed (trade) #0EA5E9 bg#F0F9FF    │
-└────────────────────────────────────────┘
+#### Status Badges / Pills
 
-CSS:
-  padding:       3px 8px
-  border-radius: 9999px (pill)
-  font-size:     12px
-  font-weight:   500
-  letter-spacing: 0.01em
+```css
+/* Base pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 9999px; /* radius-full */
+  font-family: var(--font-body); /* Inter */
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
 ```
+
+| Variant | Text Color | Background |
+|---------|-----------|-----------|
+| `badge-success` | `#10B981` | `#ECFDF5` |
+| `badge-warning` | `#92400E` | `#FFFBEB` |
+| `badge-critical` | `#EF4444` | `#FEF2F2` |
+| `badge-dead-stock` | `#8B5CF6` | `#F5F3FF` |
+| `badge-info` | `#0EA5E9` | `#F0F9FF` |
+| `badge-muted` | `#94A3B8` | `#F8FAFC` |
 
 ---
 
@@ -784,13 +933,13 @@ CSS:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  Left Sidebar (240px collapsed: 60px)                           │
+│  Left Sidebar (240px; collapsed: 60px)                          │
 │                                                                  │
 │  ◇ PharmIQ          [Collapse]                                  │
 │  ─────────────────────────────                                  │
-│  ◉ Dashboard         (active)                                   │
+│  ◉ Dashboard         (active — teal left border)                │
 │  ○ Sales Heat Map                                               │
-│  ○ Dead Stock        [3] (badge)                                │
+│  ○ Dead Stock        [3] (amber badge)                          │
 │  ○ Expiry Mate                                                  │
 │  ─────────────────────────────                                  │
 │  ○ Reports                                                      │
@@ -801,42 +950,49 @@ CSS:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+Active nav item: Teal `#0F766E` left border (3px), `teal-50` background (`#F0FDFA`), teal text.
+
+#### Top Navigation Bar (Marketing Site)
+
+- Background: `canvas-dark` (#070E1A) with 1px `dark-hairline` bottom border
+- Logo left, nav links center (Outfit 500 14px, `ink-on-dark-muted`), CTA pair right
+- Height: 60px
+- Active/hover link: `ink-on-dark` (#F1F5F9)
+- CTA primary: `button-dark-primary` (white pill on dark)
+
 #### Mobile App (iOS/Android — Expiry Mate)
 
-- Bottom Tab Bar, max 4 items:  Home | Scan | Alerts | Settings
-- Uses iOS native Tab Bar pattern (Apple HIG compliant)
-- Active tab: Teal icon + label; inactive: Muted gray
+- Bottom Tab Bar: Home | Scan | Alerts | Settings (max 4 items)
+- Active tab: Teal icon + teal label; inactive: `ink-subtle` gray
+- iOS native Tab Bar pattern (Apple HIG compliant)
 
 ---
 
 ### 4.7 Chart Language
 
-#### Chart Type Selection Guide
-
 | Data Need | Chart Type | Notes |
 |-----------|------------|-------|
 | Sales by product over time | Line chart | Multi-series with legend |
-| Revenue by category | Bar chart (horizontal) | Sorted by value |
-| Sales heat map by hour/day | Matrix heat map | Teal-to-Amber colour scale |
-| Stock level vs par | Bullet chart / gauge | Red/amber/green zones |
-| Expiry timeline | Gantt/timeline view | Coloured by urgency |
+| Revenue by category | Horizontal bar | Sorted descending by value |
+| Sales heat map by hour/day | Matrix heat map | Teal-to-Amber scale |
+| Stock level vs par | Bullet/gauge | Red/amber/green zones |
+| Expiry timeline | Gantt/timeline | Coloured by urgency |
 | Dead stock composition | Treemap | Sized by value, coloured by age |
-| Revenue split by product | Donut chart | Max 5 segments + "other" |
+| Revenue split | Donut chart | Max 5 segments + "other" |
 | Multi-location comparison | Grouped bar / small multiples | One chart per site |
 
-**Chart defaults (all charts):**
+**Chart defaults:**
 - Background: `#FFFFFF` or transparent
-- Grid lines: `#E2E8F0` (Border Light), 1px
-- Axis labels: 12px Inter, `#94A3B8`
-- Tooltip: White card, `var(--shadow-md)`, 12px padding, navy text
-- Legend: Inline with chart, not below scroll fold
+- Grid lines: `#E2E8F0` (surface-3), 1px
+- Axis labels: 12px Inter, `ink-subtle` (#94A3B8)
+- Tooltip: White card, `shadow-md`, 12px padding, `ink` text
 - Animation: 300ms ease-out on load; 150ms on update; respect `prefers-reduced-motion`
 
 ---
 
 ## PART 4B — CONSUMER PRODUCT DESIGN CONTEXT
 
-> This section documents design principles for PharmIQ products targeting workers (employees) rather than pharmacy owners or managers. The primary product in this category is the **Pay Checker** — a tool workers use to verify they are being paid correctly under their Modern Award.
+> This section documents design principles for PharmIQ products targeting workers (employees) rather than pharmacy owners. The primary product is **Pay Checker** — a tool workers use to verify they are being paid correctly under their Modern Award.
 
 ### Consumer Audience Profile
 
@@ -846,23 +1002,15 @@ CSS:
 
 **Device:** Mobile-first. Assume small screen, one hand, limited attention.
 
-**Emotional goal:** The user should leave feeling confident and informed — not confused or intimidated by award complexity.
-
 ---
 
 ### Consumer Design Principles
 
-These five principles govern all design decisions on consumer-facing worker tools:
-
-1. **Clarity over decoration** — Every typographic and layout choice must make data easier to read, not just more beautiful. If in doubt, remove decoration.
-
-2. **Hierarchy through contrast** — Headings must be unmistakably different from body text in weight, size, and family. Dense pay data demands strong visual scaffolding.
-
-3. **Readable at 16px minimum** — Body text, form labels, and interactive controls must all be ≥16px. Workers reading on mobile after a shift need comfortable text — and 16px prevents iOS input zoom.
-
-4. **Warm but precise** — Rounded, humanist letterforms (Bricolage Grotesque + DM Sans) feel approachable. Tabular numerics keep pay data accurate and aligned. Both matter equally.
-
-5. **Mobile-first** — Type scale, spacing, and touch targets are designed for small screens first. Larger viewports inherit from the mobile base, not the other way around.
+1. **Clarity over decoration** — Every choice must make data easier to read.
+2. **Hierarchy through contrast** — Headings must be unmistakably different from body text.
+3. **Readable at 16px minimum** — No body text below 16px — prevents iOS zoom.
+4. **Warm but precise** — Bricolage Grotesque + DM Sans feel approachable. Tabular numerics keep data aligned.
+5. **Mobile-first** — Type scale, spacing, and touch targets designed for small screens first.
 
 ---
 
@@ -871,29 +1019,102 @@ These five principles govern all design decisions on consumer-facing worker tool
 | Role | Font | Size | Weight |
 |------|------|------|--------|
 | App name / hero | Bricolage Grotesque | 28–32px | 800 |
-| Section headings (h2) | Bricolage Grotesque | 20px | 700 |
-| Sub-headings (h3) | Bricolage Grotesque | 18px | 600 |
+| Section headings | Bricolage Grotesque | 20px | 700 |
+| Sub-headings | Bricolage Grotesque | 18px | 600 |
 | Form labels | DM Sans | 16px | 500 |
 | Body / list text | DM Sans | 16px | 400 |
-| Checkbox / radio labels | DM Sans | 16px | 400 |
 | Button labels | DM Sans | 16px | 500 |
 | Table headers | DM Sans | 14px | 600 |
 | Table cell data | DM Sans | 14px | 400, tabular-nums |
-| Status badges / captions | DM Sans | 12px | 500 |
-
-> **Note on table text:** 14px is acceptable for dense data tables where horizontal space is constrained, but must never be used for primary body text, labels, or button copy.
+| Status badges | DM Sans | 12px | 500 |
 
 ---
 
 ### Consumer Component Language
 
-**Tone in UI copy:** Direct, plain, on the worker's side. Avoid legalese. Never use "remuneration", "entitlement", or "compliance". Use "pay", "rates", "hours". See Section 2 (Voice) for full guidance.
+**Primary CTA:** Full-width on mobile. Height 44px minimum. Teal `#0F766E`. DM Sans 16px/500.
+**Form fields:** Height ≥44px. Font-size 16px. Focus ring: `#0F766E` teal 2px.
+**Status indicators:** Semantic colour + text label — never colour alone.
 
-**Status indicators:** Use the semantic colour system (success green, critical red, amber for overpayment) with text labels — never colour alone. Workers must be able to distinguish states without relying on colour perception.
+---
 
-**Form fields:** Height ≥44px. Font-size 16px (mandatory — prevents iOS zoom). Border at rest: `#D1D5DB` (gray-300). Focus ring: `#0F766E` teal 2px.
+## PART 4C — MARKETING CANVAS
 
-**Primary CTA button:** Full-width on mobile. Height 44px minimum. Teal `#0F766E`. Label in DM Sans 16px/500.
+> This section governs the dark-first marketing surface — website hero sections, landing page headers, and brand moments. The dark canvas projects premium positioning and differentiates PharmIQ from every white-background competitor in the AU pharmacy tech space.
+
+### The Dark Canvas System
+
+PharmIQ's marketing site is **dark-canvas-first.** The hero and key section transitions live on `canvas-dark` (#070E1A). Product sections (features, pricing, testimonials) can live on the light canvas. The contrast between the two registers — dark for brand, light for product — creates a clear rhythm.
+
+**Why dark?**
+- Every AU pharmacy tech competitor (MedAdvisor, XTender, Pharmacy Hive, Z Software, POSWorks) uses white or light gray marketing surfaces
+- Dark canvas is the mark of infrastructure-grade software (Linear, Resend, Vercel, Stripe) — the category PharmIQ positions itself adjacent to
+- Product UI screenshots of the teal/amber dashboard glow dramatically on dark backgrounds
+- Teal and amber atmospheric glows can establish section tone in ways impossible on white
+
+---
+
+### Dark Canvas Layout Principles
+
+1. **Product screenshots as hero protagonist** — Every dark section should be framed around high-fidelity renders of the dashboard. The chrome is a dark frame for the product.
+
+2. **One atmospheric glow per section** — Each section opener gets either a `teal-glow` (for features, capabilities) or an `amber-glow` (for urgency/pain-point moments). Never both in the same viewport.
+
+3. **White is the loudest pixel** — On dark canvas, the `button-dark-primary` (white/light) is the highest-contrast element. There should be only one solid bright surface per viewport. If a secondary CTA is needed, use `button-dark-ghost`.
+
+4. **Fraunces display at 56px+** — Dark canvas hero headlines use `display-xl` or `display-lg` Fraunces. This is the primary brand impression moment — don't downgrade to Outfit at this scale.
+
+5. **The dark canvas is the negative space** — Sections don't need white space between them. The dark canvas fills the gaps. Section panels should lift onto `dark-surface-1` with hairline borders, not float on white gutters.
+
+---
+
+### Dark Canvas Section Anatomy
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  [Top Nav — 60px, canvas-dark, 1px dark-hairline bottom]        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  [Teal atmospheric glow — radial, top-center, fades ~480px]    │
+│                                                                  │
+│  EYEBROW TEXT                            ← Outfit 12px +0.06em  │
+│                                                                  │
+│  Hero Headline in Fraunces               ← 56–64px, weight 600  │
+│  Spanning two to three lines for         ← letter-spacing -0.015em│
+│  full typographic impact.                                        │
+│                                                                  │
+│  Lead subheadline in Inter body-lg       ← 18px, ink-on-dark-muted│
+│  describing the primary outcome.                                  │
+│                                                                  │
+│  [button-dark-primary]  [button-dark-ghost]                     │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │  Product UI Screenshot (radius-xl 16px, dark-surface-1) │    │
+│  │  The dashboard renders dramatically on canvas-dark       │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Feature Sections (Dark Canvas)
+
+Feature cards on dark canvas use `card--dark` (dark-surface-1 background + dark-hairline-strong border). 3-up grid at desktop, 2-up at tablet, 1-up at mobile.
+
+```
+┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│ card--dark       │  │ card--dark       │  │ card--dark       │
+│                  │  │                  │  │                  │
+│ [Teal icon]      │  │ [Teal icon]      │  │ [Teal icon]      │
+│                  │  │                  │  │                  │
+│ Feature title    │  │ Feature title    │  │ Feature title    │
+│ Outfit h3 22px   │  │ Outfit h3 22px   │  │ Outfit h3 22px   │
+│                  │  │                  │  │                  │
+│ Body description │  │ Body description │  │ Body description │
+│ Inter body-sm    │  │ Inter body-sm    │  │ Inter body-sm    │
+└──────────────────┘  └──────────────────┘  └──────────────────┘
+```
 
 ---
 
@@ -902,24 +1123,22 @@ These five principles govern all design decisions on consumer-facing worker tool
 ### 5.1 Website
 
 **Structure:**
-1. **Hero** — Headline + subheadline + CTA pair + product screenshot (dashboard mockup)
-2. **Social proof bar** — "Used by X pharmacies across Y states"
-3. **Two killer outcomes** — Lead with dead stock recovery + expiry write-offs (these are the most tangible, specific pain points; save the full platform story for further down the page)
-4. **Problem section** — Relatable pain points (3 cards)
-5. **Product suite** — Dashboard, Dead-Stock, Expiry Mate (3-column cards, each with Free/Pro label)
-6. **How it works** — 3-step process (connect → analyse → act)
-7. **Pricing** — Free vs Pro comparison table
-8. **Testimonials** — Pharmacy owner quotes (photo + name + location) — anchor to archetypes from 2.6
-9. **FAQ** — PBS integration, data security, POS compatibility
-10. **CTA footer** — "Start free today" + pharmacy trust signals
+1. **Hero** — Dark canvas. Fraunces display headline + Inter subheadline + CTA pair + product screenshot
+2. **Social proof bar** — Light surface-1. "Used by X pharmacies across Y states"
+3. **Two killer outcomes** — Dark canvas with amber glow. Lead with dead stock recovery + expiry write-offs
+4. **Problem section** — Light canvas. Relatable pain points (3 cards)
+5. **Product suite** — Dark canvas with teal glow. Dashboard, Dead-Stock, Expiry Mate (3-column cards)
+6. **How it works** — Light canvas. 3-step process (connect → analyse → act)
+7. **Pricing** — Light canvas. Free vs Pro comparison table; featured tier elevated
+8. **Testimonials** — Dark canvas. Pharmacy owner quotes (photo + name + location)
+9. **FAQ** — Light canvas. PBS integration, data security, POS compatibility
+10. **CTA footer** — Dark canvas with teal glow. "Start free today" + pharmacy trust signals
 
 **Hero copy direction:**
-- **H1:** Outcome-first, specific. E.g. *"Stop losing money to dead stock and expiry write-offs."* or *"See exactly where your pharmacy is bleeding margin."*
-- **Subheadline:** Follow with how: *"PharmIQ connects to your POS and shows you what to fix — starting free."*
-- Do NOT open with "operational intelligence" or "analytics platform" — that's the second sentence, not the first
-- The extended hero line *"Turn your pharmacy's data into your pharmacy's advantage."* works for awareness/brand contexts; for direct-response pages use the sharper outcome frame above
-
-**Design approach:** Clean SaaS landing page. Full-width hero with product screenshot mockup on right (angled device frame). Teal-to-navy gradient in hero section. White sections thereafter. Amber used only for CTAs and key callouts — restrain amber to no more than 2 elements above the fold.
+- **H1 (Fraunces display-xl):** Outcome-first, specific. *"Stop losing money to dead stock and expiry write-offs."*
+- **Subheadline (Inter body-lg, ink-on-dark-muted):** *"PharmIQ connects to your POS and shows you what to fix — starting free."*
+- Do NOT open with "operational intelligence" or "analytics platform" — that's the second sentence
+- Extended hero line *"Turn your pharmacy's data into your pharmacy's advantage."* works for awareness contexts
 
 **Desktop layout:** 1440px max-width, 80px horizontal padding
 **Mobile layout:** 375px min, 24px horizontal padding, stacked columns
@@ -957,46 +1176,38 @@ Wide:    1440px → Max-width container, expanded charts
 **Design choices:**
 - Large, thumb-friendly tap targets (min 48dp)
 - Status-first typography (expiry date displayed at 32px prominently)
-- Haptic feedback on scan success (confirmed), scan failure (error pattern)
+- Haptic feedback on scan success/failure
 - Offline-capable: scan works without internet; syncs when connected
 
 ---
 
 ### 5.4 Social Media
 
-#### Platform-Specific Guidelines
-
 | Platform | Format | Tone | Content Focus |
 |----------|--------|------|---------------|
 | **LinkedIn** | 1200×627 images; 1:1 for posts | Professional, insight-led | Industry trends, case studies, product updates |
-| **Instagram** | 1:1 (1080×1080); Stories 9:16 | Warmer, visual, behind-the-scenes | Team culture, pharmacy owner spotlights, data insights visualised |
-| **Facebook** | 1200×630; video | Community, helpful | How-to videos, free resource promotion, pharmacy life |
-
-#### Social Media Visual Templates
+| **Instagram** | 1:1 (1080×1080); Stories 9:16 | Warmer, visual, behind-the-scenes | Team culture, pharmacy owner spotlights, data insights |
+| **Facebook** | 1200×630; video | Community, helpful | How-to videos, free resource promotion |
 
 **Standard post grid:**
-- Background: Brand gradient (Teal → Navy) OR white with teal accent
-- Logo: Top-left corner, small icon + wordmark
-- Headline: Plus Jakarta Sans 700, 28–36px, white or navy
-- Subtext: Inter 400, 16–18px, muted
+- Background: Dark canvas (#070E1A) OR white with teal accent
+- Logo: Top-left, small icon + wordmark
+- Headline: Fraunces 600, 28–36px, white on dark OR navy on white
+- Subtext: Inter 400, 16–18px, ink-on-dark-muted OR ink-muted
 - Data callout (optional): Amber pill badge with key statistic
-- Bottom bar: Amber 4px line
-
-**Hashtag strategy:**
-`#PharmIQ #AustralianPharmacy #PharmacyOwner #PharmacyLife #PharmacyManagement #PharmaOps #AusPharmacy #ScriptSmart`
+- Bottom: 4px Teal accent line
 
 ---
 
 ### 5.5 Email Newsletter
 
-**Template structure:**
 ```
 ┌────────────────────────────────────┐
 │  ◇ PharmIQ                [Nav]   │  ← Navy header bar, 60px
 ├────────────────────────────────────┤
 │                                    │
-│  [Hero: insight headline]          │  ← Teal accent bar left edge
-│  Body intro paragraph              │  ← 16px Inter
+│  [Hero: Outfit insight headline]   │  ← Teal 3px left accent bar
+│  Body paragraph in Inter 16px      │
 │                                    │
 │  ┌──────────────────────────────┐  │
 │  │  Data Insight Callout        │  │  ← Teal bg, white text
@@ -1006,16 +1217,16 @@ Wide:    1440px → Max-width container, expanded charts
 │                                    │
 │  [Section: Tip of the month]       │
 │  [Section: Product update]         │
-│  [CTA Button: Teal]                │
+│  [CTA Button: Teal, Outfit label]  │
 │                                    │
 ├────────────────────────────────────┤
-│  Footer: logo | unsubscribe links  │  ← Gray bg, 12px text
+│  Footer: logo | unsubscribe links  │  ← surface-1 bg, 12px Inter
 └────────────────────────────────────┘
 ```
 
 **Email specs:**
 - Width: 600px (email safe)
-- Body font: system-safe stack (Arial/Helvetica fallback for Inter)
+- Body font: system-safe stack (Arial/Helvetica fallback)
 - CTA button: 200px wide, 44px height, Teal `#0F766E`, 8px radius
 - Max 2 CTAs per email
 - Plain-text version required
@@ -1025,43 +1236,41 @@ Wide:    1440px → Max-width container, expanded charts
 ### 5.6 Presentations / Pitch Decks
 
 **Slide master:**
-- Title slides: Navy background (`#0F172A`) + Teal geometric accent + white text
-- Content slides: White background + Navy headings + body text
-- Data slides: White + chart with brand palette
-- Quote slides: Teal background + white italic quote + pharmacy owner attribution
+- Title slides: Dark canvas (`#070E1A`) + teal geometric accent + white text
+- Content slides: White canvas + navy headings + body text
+- Data slides: White + brand chart palette
+- Quote slides: Dark-surface-1 (#0F172A) + white italic Fraunces quote + pharmacy owner attribution
 
 **Typography in decks:**
-- Title: Plus Jakarta Sans 800, 40–52px, white or navy
-- Heading: Plus Jakarta Sans 700, 32px
+- Title: Fraunces 600, 44–52px, white or navy
+- Section heading: Outfit 700, 32px
 - Body: Inter 400, 20px
-- Caption: Inter 400, 14px, muted
+- Caption: Inter 400, 14px, ink-muted
 
 ---
 
 ### 5.7 Merchandise & Physical Touchpoints
 
 **Conference/expo items:**
-- Pull-up banners: Navy background, full-width teal accent stripe, logo centred
+- Pull-up banners: Dark canvas background, full-width teal accent stripe, logo centred in white
 - Tote bags: Navy canvas, Teal PharmIQ logo, "Run Your Pharmacy Smarter" in amber text
 - Pens: Teal body, silver clip, white logo print
-- A-frame sign (for pharmacy partner doorstep): White background, "PharmIQ Partner Pharmacy" in teal, logo and QR code
+- A-frame sign: White background, "PharmIQ Partner Pharmacy" in teal, logo and QR code
 
-**Packaging for premium accounts:**
-- Onboarding welcome pack
-  - Navy kraft box with Teal "PharmIQ" debossed lid
-  - Inside: branded notebook (teal elastic), USB card (stores setup guide), card deck (setup tips)
-  - Thank you card: pharmacy-specific personal note on 160gsm card stock
+**Premium account welcome pack:**
+- Navy kraft box with Teal "PharmIQ" debossed lid
+- Inside: branded notebook (teal elastic), USB card (setup guide), card deck (setup tips)
+- Thank you card: pharmacy-specific personal note on 160gsm card stock
 
 ---
 
 ### 5.8 Internal Documentation
 
-**Internal document template:**
-- Header: Teal left border stripe on page, small logo top-right
-- Title font: Plus Jakarta Sans 700, 24px
+- Header: Teal left border stripe, small logo top-right
+- Title font: Outfit 700, 24px
 - Body: Inter 400, 11pt print / 16px digital
-- Tables: Light teal header row (`#F0FDFA`), Navy text `#0F172A`
-- Warning callouts: Amber left border, light amber bg
+- Tables: Teal 50 (`#F0FDFA`) header row, Navy text
+- Warning callouts: Amber left border, amber-50 background
 
 ---
 
@@ -1100,14 +1309,16 @@ pharmiq-template-email-v1.html
 | White text on Teal `#0F766E` | 5.3:1 | AA ✓ |
 | Navy `#0F172A` on White | 19.1:1 | AAA ✓ |
 | Teal `#0F766E` on White | 5.3:1 | AA ✓ |
-| Amber `#D97706` on White | 3.1:1 | AA Large text ✓ |
+| Amber `#D97706` on White | 3.1:1 | AA Large text only ✓ |
 | White on Navy `#0F172A` | 19.1:1 | AAA ✓ |
 | White on Amber `#D97706` | 2.8:1 | ✗ — do NOT use for text |
 | Navy on Amber `#D97706` | 7.0:1 | AA ✓ |
 | Text Secondary `#475569` on White | 5.9:1 | AA ✓ |
-| Text Muted `#94A3B8` on White | 2.7:1 | ✗ — decorative only, never body text |
+| Text Muted `#94A3B8` on White | 2.7:1 | ✗ — decorative only |
+| `ink-on-dark` `#F1F5F9` on `canvas-dark` `#070E1A` | 18.2:1 | AAA ✓ |
+| `ink-on-dark-muted` on `canvas-dark` | ~13:1 | AAA ✓ |
 
-> **Rule:** `#94A3B8` (Text Muted) is for captions, placeholders, and decorative labels ONLY — never for informational body text.
+> `#94A3B8` (ink-subtle) is for captions, placeholders, and decorative labels ONLY — never for informational body text.
 
 ---
 
@@ -1123,25 +1334,104 @@ pharmiq-template-email-v1.html
 | **Dragatron** | Dark slate `#0F172A` + cloud blue | Technical, AI-heavy | Enterprise PMS pricing; no free tier |
 | **POSWorks** | Pure greyscale `#222` | Utilitarian, no-frills | Aged UI; no analytics or intelligence layer |
 | **XTender** | Blue `#1565C0` + orange | Direct, pharmacist-first | Narrow toolset; no multi-site data network |
-| **Pharmacy Halo** | Teal `#39C0C0` + orange | Warm, module-based | Patient-focused modules; no revenue/stock intelligence |
+| **Pharmacy Halo** | Teal `#39C0C0` + orange | Warm, module-based | Patient-focused; no revenue/stock intelligence |
 
-**Key sector-wide gaps (confirmed by research):**
-- 6 of 7 competitors use blue as primary — teal at `#0F766E` (darker, more serious) is unoccupied
-- Pharmacy Halo uses lighter teal `#39C0C0` — meaningfully different from PharmIQ's deeper tone
-- "Streamline operations" and "built by pharmacists" are now commodity claims — avoid both
-- Multi-site pharmacy networks are underserved in messaging and feature design
-- "Book a Demo" is the universal CTA — PharmIQ should use outcome-oriented CTAs
-- No competitor leads with **commercial outcomes** (profit, margins, revenue per script)
+**Key sector-wide gaps:**
+- 6 of 7 competitors use blue as primary — teal at `#0F766E` is unoccupied
+- No competitor uses serif display type — Fraunces is completely uncontested territory
+- All competitors use white/light marketing surfaces — dark canvas is unoccupied
+- "Streamline operations" and "built by pharmacists" are commodity claims — avoid both
+- No competitor leads with commercial outcomes (profit, margins, revenue per script)
+
+---
 
 ### 7.2 PharmIQ's Visual Differentiators
 
-1. **Deep Teal `#0F766E`** — Occupies uncontested colour territory; distinct from Pharmacy Halo's lighter `#39C0C0`; not the default blue of every other competitor
-2. **Amber `#D97706` accent** — No competitor uses warm amber/gold; distinctly Australian; functionally correct for urgent alerts
-3. **Two-tier heading system** — Space Grotesk for B2B platform products (XTender uses Plus Jakarta Sans — we remain unique); Bricolage Grotesque for consumer/worker tools (warmer, more approachable, still distinctive across the full competitive set)
-4. **Commercial-first voice** — Every competitor leads with operations/admin/compliance relief; PharmIQ leads with margin and revenue outcomes
-5. **Data-forward hero design** — Dashboards shown as hero imagery (not stock photos); the product is the visual proof
-6. **"Mate" product naming** — Expiry Mate establishes uniquely Australian casual-professional product identity; aligns with how Australian pharmacists actually talk
-7. **Free tier genuinely marketed** — No competitor offers or prominently features a free analytics tier; this is a major acquisition advantage
+1. **Deep Teal `#0F766E`** — Uncontested; distinct from Pharmacy Halo's lighter `#39C0C0`; not the default blue of every other competitor
+2. **Amber `#D97706` accent** — No competitor uses warm amber; distinctly Australian; functionally correct for urgent alerts
+3. **Fraunces display type** — Zero competitors use editorial serif display type. This single typographic choice lifts PharmIQ into the infrastructure-grade software tier visually.
+4. **Outfit for headings/UI** — Different from XTender (Plus Jakarta Sans), Pharmacy Halo, and the Space Grotesk crowd. Clean, modern, unoccupied.
+5. **Dark canvas marketing** — Every competitor is on white. PharmIQ's dark-first marketing surface projects premium, infrastructure-grade authority.
+6. **Commercial-first voice** — Every competitor leads with operations/admin/compliance; PharmIQ leads with margin and revenue outcomes
+7. **Data-forward hero design** — Dashboards shown as hero imagery; the product is the visual proof
+8. **Free tier prominently featured** — No competitor offers or prominently features a free analytics tier
+
+---
+
+## PART 8 — DO'S AND DON'TS
+
+### Do
+
+- Use `canvas-dark` (#070E1A) as the marketing hero anchor — dark-canvas-first is the signal
+- Reserve Fraunces for hero moments (48px+) only. Outfit handles all sub-hero headings.
+- Use the four-step surface ladder for hierarchy — both light and dark. Avoid skipping levels.
+- Apply `hairline-strong` borders to cards instead of drop shadows where possible
+- Treat atmospheric glows as section-level — one per section, never two in the same viewport
+- Keep `eyebrow` text in Outfit 600, uppercase, `+0.06em` tracking — it's the only positive tracking in the system
+- Apply aggressive negative tracking to Fraunces display (`-0.015em` at 64px)
+- Reserve amber for functional urgency. If amber appears and nothing is urgent, remove it.
+- Use `font-variant-numeric: tabular-nums` on every data value — no exceptions
+- Lead marketing sections with product UI screenshots. The dashboard IS the hero.
+- Set button corner radius to 8px (radius-md) — not pill-rounded, not square
+
+### Don't
+
+- Don't use Space Grotesk — it is overused in the startup-SaaS space and XTender has made it a sector signal
+- Don't use atmospheric glows as solid card backgrounds or button fills
+- Don't use both Fraunces and Outfit as display text in the same hero — Fraunces leads, Outfit supports
+- Don't use amber decoratively. If more than one amber element appears in the same viewport at rest, reduce.
+- Don't add drop shadows to cards on the dark canvas — hairline borders only
+- Don't use `ink-subtle` (#94A3B8) for informational text — it fails AA contrast on white
+- Don't use `#000000` true black as the dark canvas — `canvas-dark` (#070E1A) has the subtle navy tint that's on-brand
+- Don't loosen Fraunces `line-height` past 1.10 at display sizes — tight stacking is structural
+- Don't introduce a third brand accent (no purple, pink, or bright green in the marketing chrome)
+- Don't use white on amber (`#D97706`) for text — contrast fails at 2.8:1
+- Don't pill-round primary CTA buttons — `radius-md` (8px) reads as professional infrastructure, not consumer app
+- Don't use Bricolage Grotesque/DM Sans outside consumer worker tools (Pay Checker)
+
+---
+
+## PART 9 — RESPONSIVE BEHAVIOR
+
+### Breakpoints
+
+| Name | Width | Key Changes |
+|------|-------|-------------|
+| Mobile | 375px | Single column, drawer nav, hero display-xl scales to ~36px |
+| Mobile-LG | 480px | Minor spacing adjustments |
+| Tablet | 768px | Collapsible sidebar, 2-column cards, Fraunces display-xl ~48px |
+| Desktop | 1024px | Full sidebar, 3-column cards, full nav |
+| Desktop-XL | 1440px | Max-width 1280px container, expanded charts |
+
+### Display Type Scaling
+
+```css
+.hero-headline {
+  font-size: clamp(36px, 5vw, 64px);
+  /* 36px on mobile → 64px on desktop */
+  letter-spacing: -0.015em; /* constant — ratio, not fixed px */
+}
+
+.section-headline {
+  font-size: clamp(28px, 3.5vw, 48px);
+  letter-spacing: -0.012em;
+}
+```
+
+### Touch Targets
+
+- All CTA buttons: ≥40px height on desktop, ≥44px on mobile
+- Navigation items: ≥44px tap target
+- Form inputs: ≥44px height on mobile, 40px on desktop
+- Icon-only actions: 44×44px minimum with visible label
+
+### Collapsing Strategy
+
+- **Top nav:** Links collapse to hamburger below 768px. Logo left, primary CTA right, always visible.
+- **Card grids:** 3-up → 2-up at 768px → 1-up below 480px
+- **Sidebar:** Full 240px → Icon-only 60px at 768px → Drawer (off-canvas) at 480px
+- **Pricing grid:** 3-up → stacked at 768px; featured tier stays visually elevated
+- **Atmospheric glows:** CSS gradients — no asset cost, scale naturally with viewport
 
 ---
 
@@ -1149,6 +1439,6 @@ pharmiq-template-email-v1.html
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.2 | March 2026 | Applied advisor review recommendations. Fixed Quick Reference (tagline, font). Revised 1.5 positioning to lead with margin protection. Added tagline placement rules (owner vs worker surfaces) to 1.6. Added 1.7 Product Naming Hierarchy. Added 2.0 Voice Quick Guide (Do/Don't, rewrites, email examples). Added 2.6 Customer Story Archetypes. Added Amber Usage Restraint guidance to 3.2. Added typography DEFAULT callout to 3.3. Added 4.0 "When in Doubt" defaults. Updated 5.1 website hero direction. |
-| 1.1 | March 2026 | Added two-tier typography system (Space Grotesk/Inter for B2B platform; Bricolage Grotesque/DM Sans for consumer/worker tools). Added Part 4B: Consumer Product Design Context with audience profile, 5 design principles, and component language for worker-facing apps. |
-| 1.0 | March 2026 | Initial brand identity system |
+| 2.0 | May 2026 | Major design system upgrade informed by analysis of Linear, Resend, and Mintlify design systems. Replaced Space Grotesk with Fraunces (display) + Outfit (headings/UI). Added surface ladder (4-step light + 4-step dark). Added hairline border token system replacing shadow-first approach. Added atmospheric glow system (teal-glow, amber-glow) for dark canvas. Added `canvas-dark` (#070E1A) as primary marketing surface. Expanded scarcity rules for teal and amber. Added eyebrow text specification. Added full letter-spacing tokens across all type sizes. Added Part 4C Marketing Canvas. Added Part 8 Do's and Don'ts. Added Part 9 Responsive Behavior. Updated logo to reference Outfit 700 wordmark. Updated PART 7 competitive differentiation to reflect new typography differentiators. |
+| 1.2 | March 2026 | Applied advisor review recommendations. Fixed Quick Reference. Revised 1.5 positioning. Added tagline placement rules. Added 1.7 Product Naming Hierarchy. Added 2.0 Voice Quick Guide. Added 2.6 Customer Story Archetypes. Added Amber Usage Restraint guidance. Added typography DEFAULT callout. Added 4.0 "When in Doubt" defaults. Updated 5.1 website hero direction. |
+| 1.1 | March 2026 | Added two-tier typography system (Space Grotesk/Inter for B2B platform; Bricolage Grotesque/DM Sans for consumer/worker tools). Added Part 4B: Consumer Product Design Context. |
