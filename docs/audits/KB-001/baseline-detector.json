@@ -1,0 +1,46 @@
+{
+  "capturedAt": "2026-10-25",
+  "tool": ".agents/skills/impeccable/scripts/impeccable detect",
+  "scans": {
+    "source": {
+      "command": ".agents/skills/impeccable/scripts/impeccable detect --json src/",
+      "exitCode": 2,
+      "findings": [
+        {
+          "antipattern": "side-tab",
+          "name": "Side-tab accent border",
+          "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+          "severity": "warning",
+          "category": "slop",
+          "file": "src/App.jsx",
+          "line": 753,
+          "snippet": "border-l-2",
+          "importedBy": ["main.jsx"]
+        }
+      ]
+    },
+    "desktop": {
+      "command": "IMPECCABLE_BROWSER=<local Chromium> .agents/skills/impeccable/scripts/impeccable detect --json --viewport 1280x800 http://127.0.0.1:4173",
+      "exitCode": 0,
+      "findings": [],
+      "limitation": "The application did not render because src/App.jsx failed to parse. The empty detector result is not a clean bill of health."
+    },
+    "mobile": {
+      "command": "IMPECCABLE_BROWSER=<local Chromium> .agents/skills/impeccable/scripts/impeccable detect --json --viewport 390x844 http://127.0.0.1:4173",
+      "exitCode": 2,
+      "findings": [
+        {
+          "antipattern": "script-error",
+          "name": "Uncaught script error on load",
+          "description": "A script threw an uncaught exception or failed to parse while the page loaded.",
+          "severity": "error",
+          "category": "quality",
+          "file": "http://127.0.0.1:4173",
+          "line": 0,
+          "snippet": "Uncaught TypeError: Cannot read properties of undefined (reading 'frame') (at ErrorOverlay, http://127.0.0.1:4173/@vite/client:721:26)"
+        }
+      ],
+      "limitation": "The reported overlay exception is secondary to the Vite parse failure captured in runtime evidence."
+    }
+  }
+}

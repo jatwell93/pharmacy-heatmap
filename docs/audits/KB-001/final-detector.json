@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-25",
+  "tool": ".agents/skills/impeccable/scripts/impeccable detect",
+  "scans": {
+    "source": {
+      "command": ".agents/skills/impeccable/scripts/impeccable detect --json src/",
+      "findings": [
+        {
+          "antipattern": "overused-font",
+          "name": "Overused font",
+          "description": "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, and Space Grotesk are used on so many sites they no longer feel distinctive. Each new wave of AI-generated UIs converges on the same handful of faces. Choose a face that gives your interface personality.",
+          "severity": "warning",
+          "category": "slop",
+          "file": "/home/ja/projects/pharmacy-heatmap/.fusion/worktrees/kb-001/src/index.css",
+          "line": 4,
+          "snippet": "font-family: \"Inter"
+        }
+      ]
+    },
+    "desktop": {
+      "command": "IMPECCABLE_BROWSER=<local Chromium> .agents/skills/impeccable/scripts/impeccable detect --json --viewport 1280x800 http://127.0.0.1:4173",
+      "findings": []
+    },
+    "mobile": {
+      "command": "IMPECCABLE_BROWSER=<local Chromium> .agents/skills/impeccable/scripts/impeccable detect --json --viewport 390x844 http://127.0.0.1:4173",
+      "findings": []
+    }
+  },
+  "dispositions": {
+    "overused-font": "Rejected false positive: Inter is the explicit PharmIQ body and dense product UI font in DESIGN.md and the brand guide; substituting it would violate the approved identity."
+  }
+}
